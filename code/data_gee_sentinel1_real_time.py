@@ -5,6 +5,7 @@
 from all_dependencies import *
 from snowcast_utils import *
 import eeauth as e
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
 try:
     ee.Initialize(e.creds())
@@ -27,8 +28,8 @@ all_cell_coords_file = f"{github_dir}/data/snowcast_provided/all_cell_coords_fil
 all_cell_coords_df = pd.read_csv(all_cell_coords_file, header=0, index_col=0)
 
 #start_date = "2022-04-20"#test_start_date
-start_date = findLastStopDate(f"{github_dir}/data/sat_testing/sentinel1","%Y-%m-%d %H:%M:%S")
-end_date = test_end_date
+#start_date = findLastStopDate(f"{github_dir}/data/sat_testing/sentinel1","%Y-%m-%d %H:%M:%S")
+#end_date = test_end_date
 
 org_name = 'sentinel1'
 product_name = 'COPERNICUS/S1_GRD'

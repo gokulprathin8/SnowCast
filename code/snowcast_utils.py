@@ -1,4 +1,5 @@
 from datetime import date
+from datetime import datetime, timedelta
 import json
 import pandas as pd
 import ee
@@ -11,17 +12,17 @@ import numpy as np
 import os.path
 import math
 import datetime
-
 today = date.today()
 
 # dd/mm/YY
 d1 = today.strftime("%Y-%m-%d")
+d1 = today - timedelta(days=3)
 print("today date =", d1)
 
 train_start_date = ""
 train_end_date = ""
 
-test_start_date = "2022-01-01"
+test_start_date = "2023-03-01"
 test_end_date = d1
 
 # read the grid geometry file

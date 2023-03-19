@@ -1,4 +1,274 @@
 [{
+  "history_id" : "b29rbizsf1q",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091534976,
+  "history_end_time" : 1679091744969,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "hnapb0b8i17",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091527023,
+  "history_end_time" : 1679091533668,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "9ujethm8tbq",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887964091,
+  "history_end_time" : 1678888215697,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "53n0at49whr",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887944939,
+  "history_end_time" : 1678887946446,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ikacjjldj8w",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887287237,
+  "history_end_time" : 1678887836230,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "6u86905iewu",
+  "history_input" : "\nimport requests\nimport pandas as pd\nfrom bs4 import BeautifulSoup\n\nnohrsc_url_format_string = \"https://www.nohrsc.noaa.gov/nearest/index.html?city={lat}%2C{lon}&county=&l=5&u=e&y={year}&m={month}&d={day} \"\ntest_noaa_query_url = nohrsc_url_format_string.format(lat=40.05352381745094, lon=-106.04027196859343, year=2022, month=5, day=4)\n\nprint(f\"url: {test_noaa_query_url}\")\n\nresponse = requests.get(test_noaa_query_url, headers={'User-Agent': 'Mozilla'})\nparsed_html = BeautifulSoup(response.text, features='lxml')\ncontainer_div = parsed_html.find(\"div\", attrs={'class': 'container'})\nif container_div:\n    container_div = container_div.get_text()\nelse:\n    print(\"could not find div the class 'container'\")\n\nlive_stats = parsed_html.find_all('table', attrs={'class': 'gray_data_table'})\ntables = pd.read_html(str(live_stats))\n\ntable_sequence = [\n        'Raw Snowfall Observations',\n        'Snow Depth',\n        'Snow Water Equivalent Observations',\n        'Raw Precipitation Observations'\n    ]\nfor idx, t in enumerate(tables):\n    print(table_sequence[idx])\n    print(t)\n    print('--------------------')",
+  "history_output" : "url: https://www.nohrsc.noaa.gov/nearest/index.html?city=40.05352381745094%2C-106.04027196859343&county=&l=5&u=e&y=2022&m=5&d=4 \ncould not find div the class 'container'\nRaw Snowfall Observations\n  Station ID                  Name  ...     Date (UTC)    Distance\n0   CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1      WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2   CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3   CO-GR-53  TABERNASH 1.9 NW, CO  ...  2022-05-15 06  9.5 mi ESE\n4   CO-GR-86  PARSHALL 8.8 SSE, CO  ...  2022-05-15 15    10 mi SW\n\n[5 rows x 7 columns]\n--------------------\nSnow Depth\n    Station ID                  Name  ...     Date (UTC)    Distance\n0     CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1        WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2     CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3        SCSC2      STILLWATER CREEK  ...  2022-05-16 05  13.7 mi NE\n4  CAFLC_MADIS            FOOL CREEK  ...  2022-05-16 05  14.8 mi SE\n\n[5 rows x 6 columns]\n--------------------\nSnow Water Equivalent Observations\n  Station ID               Name  ...     Date (UTC)     Distance\n0      SCSC2   STILLWATER CREEK  ...  2022-05-15 17   13.7 mi NE\n1      FCVC2         FOOL CREEK  ...  2022-05-16 03   15.5 mi SE\n2      MFKC2   MIDDLE FORK CAMP  ...  2022-05-16 02    17.6 mi S\n3      WLLC2  WILLOW CREEK PASS  ...  2022-05-16 05    20.7 mi N\n4      JNPC2         JONES PASS  ...  2022-05-16 04  20.9 mi SSE\n\n[5 rows x 6 columns]\n--------------------\nRaw Precipitation Observations\n  Station ID                        Name  ...     Date (UTC)    Distance\n0      CAWC2  COLORADO RVR BLW WINDY GAP  ...  2022-05-16 06  4.5 mi NNE\n1   CO-GR-68        TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n2      GRUC2             GROUSE MOUNTAIN  ...  2022-05-16 05  9.3 mi WNW\n3      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n4      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n\n[5 rows x 7 columns]\n--------------------\n",
+  "history_begin_time" : 1678884595989,
+  "history_end_time" : 1678884986357,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "k8wiqt6afzh",
+  "history_input" : "\nimport requests\nimport pandas as pd\nfrom bs4 import BeautifulSoup\n\nnohrsc_url_format_string = \"https://www.nohrsc.noaa.gov/nearest/index.html?city={lat}%2C{lon}&county=&l=5&u=e&y={year}&m={month}&d={day} \"\ntest_noaa_query_url = nohrsc_url_format_string.format(lat=40.05352381745094, lon=-106.04027196859343, year=2022, month=5, day=4)\n\nprint(f\"url: {test_noaa_query_url}\")\n\nresponse = requests.get(test_noaa_query_url, headers={'User-Agent': 'Mozilla'})\nparsed_html = BeautifulSoup(response.text, features='lxml')\ncontainer_div = parsed_html.find(\"div\", attrs={'class': 'container'})\nif container_div:\n    container_div = container_div.get_text()\nelse:\n    print(\"could not find div the class 'container'\")\n\nlive_stats = parsed_html.find_all('table', attrs={'class': 'gray_data_table'})\ntables = pd.read_html(str(live_stats))\n\ntable_sequence = [\n        'Raw Snowfall Observations',\n        'Snow Depth',\n        'Snow Water Equivalent Observations',\n        'Raw Precipitation Observations'\n    ]\nfor idx, t in enumerate(tables):\n    print(table_sequence[idx])\n    print(t)\n    print('--------------------')",
+  "history_output" : "url: https://www.nohrsc.noaa.gov/nearest/index.html?city=40.05352381745094%2C-106.04027196859343&county=&l=5&u=e&y=2022&m=5&d=4 \ncould not find div the class 'container'\nRaw Snowfall Observations\n  Station ID                  Name  ...     Date (UTC)    Distance\n0   CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1      WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2   CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3   CO-GR-53  TABERNASH 1.9 NW, CO  ...  2022-05-15 06  9.5 mi ESE\n4   CO-GR-86  PARSHALL 8.8 SSE, CO  ...  2022-05-15 15    10 mi SW\n\n[5 rows x 7 columns]\n--------------------\nSnow Depth\n    Station ID                  Name  ...     Date (UTC)    Distance\n0     CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1        WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2     CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3        SCSC2      STILLWATER CREEK  ...  2022-05-16 05  13.7 mi NE\n4  CAFLC_MADIS            FOOL CREEK  ...  2022-05-16 05  14.8 mi SE\n\n[5 rows x 6 columns]\n--------------------\nSnow Water Equivalent Observations\n  Station ID               Name  ...     Date (UTC)     Distance\n0      SCSC2   STILLWATER CREEK  ...  2022-05-15 17   13.7 mi NE\n1      FCVC2         FOOL CREEK  ...  2022-05-16 03   15.5 mi SE\n2      MFKC2   MIDDLE FORK CAMP  ...  2022-05-16 02    17.6 mi S\n3      WLLC2  WILLOW CREEK PASS  ...  2022-05-16 05    20.7 mi N\n4      JNPC2         JONES PASS  ...  2022-05-16 04  20.9 mi SSE\n\n[5 rows x 6 columns]\n--------------------\nRaw Precipitation Observations\n  Station ID                        Name  ...     Date (UTC)    Distance\n0      CAWC2  COLORADO RVR BLW WINDY GAP  ...  2022-05-16 06  4.5 mi NNE\n1   CO-GR-68        TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n2      GRUC2             GROUSE MOUNTAIN  ...  2022-05-16 05  9.3 mi WNW\n3      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n4      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n\n[5 rows x 7 columns]\n--------------------\n",
+  "history_begin_time" : 1678884241421,
+  "history_end_time" : 1678884438332,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "8s1je5dq1rf",
+  "history_input" : "\nimport requests\nimport pandas as pd\nfrom bs4 import BeautifulSoup\n\nnohrsc_url_format_string = \"https://www.nohrsc.noaa.gov/nearest/index.html?city={lat}%2C{lon}&county=&l=5&u=e&y={year}&m={month}&d={day} \"\ntest_noaa_query_url = nohrsc_url_format_string.format(lat=40.05352381745094, lon=-106.04027196859343, year=2022, month=5, day=4)\n\nprint(f\"url: {test_noaa_query_url}\")\n\nresponse = requests.get(test_noaa_query_url, headers={'User-Agent': 'Mozilla'})\nparsed_html = BeautifulSoup(response.text, features='lxml')\ncontainer_div = parsed_html.find(\"div\", attrs={'class': 'container'})\nif container_div:\n    container_div = container_div.get_text()\nelse:\n    print(\"could not find div the class 'container'\")\n\nlive_stats = parsed_html.find_all('table', attrs={'class': 'gray_data_table'})\ntables = pd.read_html(str(live_stats))\n\ntable_sequence = [\n        'Raw Snowfall Observations',\n        'Snow Depth',\n        'Snow Water Equivalent Observations',\n        'Raw Precipitation Observations'\n    ]\nfor idx, t in enumerate(tables):\n    print(table_sequence[idx])\n    print(t)\n    print('--------------------')",
+  "history_output" : "url: https://www.nohrsc.noaa.gov/nearest/index.html?city=40.05352381745094%2C-106.04027196859343&county=&l=5&u=e&y=2022&m=5&d=4 \ncould not find div the class 'container'\nRaw Snowfall Observations\n  Station ID                  Name  ...     Date (UTC)    Distance\n0   CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-13 13  8.7 mi ESE\n1      WIFC2     WILLIAMS FORK DAM  ...  2022-05-13 14    8.7 mi W\n2   CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-13 13  8.9 mi WNW\n3   CO-GR-53  TABERNASH 1.9 NW, CO  ...  2022-05-13 06  9.5 mi ESE\n4   CO-GR-86  PARSHALL 8.8 SSE, CO  ...  2022-05-13 15    10 mi SW\n\n[5 rows x 7 columns]\n--------------------\nSnow Depth\n    Station ID                  Name  ...     Date (UTC)    Distance\n0     CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-13 13  8.7 mi ESE\n1        WIFC2     WILLIAMS FORK DAM  ...  2022-05-13 14    8.7 mi W\n2     CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-13 13  8.9 mi WNW\n3        SCSC2      STILLWATER CREEK  ...  2022-05-14 04  13.7 mi NE\n4  CAFLC_MADIS            FOOL CREEK  ...  2022-05-14 05  14.8 mi SE\n\n[5 rows x 6 columns]\n--------------------\nSnow Water Equivalent Observations\n  Station ID               Name  ...     Date (UTC)     Distance\n0      SCSC2   STILLWATER CREEK  ...  2022-05-13 20   13.7 mi NE\n1      FCVC2         FOOL CREEK  ...  2022-05-13 16   15.5 mi SE\n2      MFKC2   MIDDLE FORK CAMP  ...  2022-05-14 02    17.6 mi S\n3      WLLC2  WILLOW CREEK PASS  ...  2022-05-14 05    20.7 mi N\n4      JNPC2         JONES PASS  ...  2022-05-14 05  20.9 mi SSE\n\n[5 rows x 6 columns]\n--------------------\nRaw Precipitation Observations\n  Station ID                        Name  ...     Date (UTC)    Distance\n0      CAWC2  COLORADO RVR BLW WINDY GAP  ...  2022-05-14 06  4.5 mi NNE\n1   CO-GR-68        TABERNASH 2.7 NW, CO  ...  2022-05-13 13  8.7 mi ESE\n2      GRUC2             GROUSE MOUNTAIN  ...  2022-05-14 05  9.3 mi WNW\n3      KSEC2                KEYSER RIDGE  ...  2022-05-14 05     11 mi S\n4      KSEC2                KEYSER RIDGE  ...  2022-05-14 05     11 mi S\n\n[5 rows x 7 columns]\n--------------------\n",
+  "history_begin_time" : 1678756812053,
+  "history_end_time" : 1678756821424,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Done"
+},{
+  "history_id" : "lyha1gx4d4p",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678756683255,
+  "history_end_time" : 1678756684806,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "n7ccebr0mt4",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678749631704,
+  "history_end_time" : 1678749936012,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "k9jnl07xz7e",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678747245283,
+  "history_end_time" : 1678747245283,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "2ual2049zdf",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678746481171,
+  "history_end_time" : 1678746793045,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "jwqm1zx7rjz",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743868491,
+  "history_end_time" : 1678744167082,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "53dal7h82as",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743629013,
+  "history_end_time" : 1678743629013,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "a0p6xv7gwe7",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743144811,
+  "history_end_time" : 1678743615533,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "dxw4723z8ah",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742583274,
+  "history_end_time" : 1678742583274,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "xvm6umeddeb",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742209463,
+  "history_end_time" : 1678742571509,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "cxqrttr0133",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678738707259,
+  "history_end_time" : 1678738707259,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "k8rszvg6zy3",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678725424160,
+  "history_end_time" : 1678725424160,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "0sbb77ytba7",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678723111761,
+  "history_end_time" : 1678725408352,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "4ykzh82mmlf",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678649002054,
+  "history_end_time" : 1678649002054,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "p7secuae0cn",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648366888,
+  "history_end_time" : 1678648366888,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "w3dwpnes2em",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648337321,
+  "history_end_time" : 1678648341647,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "t3pibsx36a9",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678564567729,
+  "history_end_time" : 1678564567729,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "wrw53bc36ei",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678564538620,
+  "history_end_time" : 1678564538620,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "i3wk62ysmwq",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557921940,
+  "history_end_time" : 1678557923649,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "vl6paytqj4n",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557705793,
+  "history_end_time" : 1678557898797,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
   "history_id" : "bzd7p0ll73t",
   "history_input" : "No code saved",
   "history_output" : "Skipped",
@@ -1834,6 +2104,56 @@
   "history_output" : null,
   "history_begin_time" : null,
   "history_end_time" : 1678206378262,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "bh1an8rq9ck",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678883775447,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "bg79nwrzx0r",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884042282,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ftheja41w4b",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884140266,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "5wfkjl0k26h",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884535352,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "vchotc2lpu2",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678887010628,
   "history_notes" : null,
   "history_process" : "p87wh1",
   "host_id" : "45wlwr",

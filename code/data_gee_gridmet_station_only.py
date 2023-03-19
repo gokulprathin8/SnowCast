@@ -9,6 +9,7 @@ import geojson
 import numpy as np
 import os.path
 import eeauth as e
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
 #exit() # uncomment to download new files
 '''service_account = 'eartheginegcloud@earthengine58. iam.gserviceaccount.com'
@@ -36,8 +37,8 @@ station_cell_mapper_df = pd.read_csv(station_cell_mapper_file)
 
 org_name = 'gridmet'
 product_name = 'IDAHO_EPSCOR/GRIDMET'
-start_date = '2018-10-01'
-end_date = '2019-09-30'
+#start_date = '2018-10-01'
+#end_date = '2019-09-30'
 
 var_list = ['tmmn', 'tmmx', 'pr', 'vpd', 'eto', 'rmax', 'rmin', 'vs']
 

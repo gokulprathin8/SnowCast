@@ -35,7 +35,7 @@ def turn_doy_to_date(year, doy):
 homedir = os.path.expanduser('~')
 print(homedir)
 github_dir = f"{homedir}/Documents/GitHub/SnowCast"
-test_ready_file = f"{github_dir}/data/ready_for_testing/all_ready_2.csv"
+test_ready_file = f"{github_dir}/data/ready_for_testing/all_ready.csv"
 test_ready_pd = pd.read_csv(test_ready_file, header=0, index_col=0)
 submission_file = f"{github_dir}/data/snowcast_provided/submission_format_eval.csv"
 submission_pd = pd.read_csv(submission_file, header=0, index_col=0)

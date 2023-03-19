@@ -12,6 +12,7 @@ import geojson
 import numpy as np
 import os.path
 from datetime import datetime,timedelta
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
 print("integrating datasets into one dataset")
 # pd.set_option('display.max_columns', None)'''

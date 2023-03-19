@@ -11,6 +11,7 @@ import numpy as np
 import os.path
 import math
 from datetime import datetime as dt
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
 from datetime import date
 from snowcast_utils import *
@@ -20,10 +21,13 @@ pd.set_option('display.max_columns', None)
 today = date.today()
 
 # dd/mm/YY
-start_date = "2022-01-01"
+#start_date = "2022-01-01"
 #end_date = today.strftime("%Y-%m-%d")
-end_date = findLastStopDate(f"{github_dir}/data/sim_testing/gridmet/", "%Y-%m-%d %H:%M:%S")
+#end_date = findLastStopDate(f"{github_dir}/data/sim_testing/gridmet/", "%Y-%m-%d %H:%M:%S")
 print("d1 =", end_date)
+
+end_date_s = datetime.datetime.strptime('2023-03-14', '%Y-%m-%d')
+end_date = end_date_s.strftime('%Y-%m-%d')
 
 print("integrating datasets into one dataset")
 #pd.set_option('display.max_columns', None)
@@ -154,11 +158,11 @@ def integrate_sentinel1():
   
   new_s1_pd.to_csv(all_sentinel1_file)
   print("DONE-integration of sentinels1")
-
+  
+'''
 def integrate_gridmet():
-  """
+ 
   Integrate all gridMET data into gridmet_all.csv
-  """
   
   dates = pd.date_range(start=start_date, end=end_date, freq='D').astype(str)
   
@@ -171,7 +175,7 @@ def integrate_gridmet():
     
     all_gridmet_var_folder = f"{github_dir}/data/sim_testing/gridmet/"
     new_var_pd = None
-    
+    print( os.listdir(all_gridmet_var_folder))
     for filename in os.listdir(all_gridmet_var_folder):
       f = os.path.join(all_gridmet_var_folder, filename)
       if os.path.isfile(f) and ".csv" in f:
@@ -185,9 +189,9 @@ def integrate_gridmet():
         cols = cell_id_list
         if new_var_pd is None:
           new_var_pd = pd.DataFrame(([0.0 for col in cols] for row in rows), index=rows, columns=cols)
-
+        print(all_gridmet_var_pd.columns)
         for i, row in all_gridmet_var_pd.iterrows():
-          cdate = row["Unnamed: 0"]
+          cdate = row["date"]
           xdate = dt.strptime(cdate, "%Y-%m-%d %H:%M:%S") #3/7/2022  2:00:48 AM
           sdate = xdate.strftime("%Y-%m-%d")
           newval = row[var]
@@ -196,9 +200,35 @@ def integrate_gridmet():
             new_var_pd.at[sdate, cellid] = float(newval)
   
     new_var_pd.to_csv(all_single_var_file)
-    print("DONE-integration of gridmet")
-  
-  
+    print("DONE-integration of gridmet")'''
+
+def integrate_gridmet():
+    var_list = ['tmmn', 'tmmx', 'pr', 'vpd', 'eto', 'rmax', 'rmin', 'vs']
+    all_var_file = f"{github_dir}/data/sim_testing/gridmet/all_vars_{start_date}_{end_date}.csv"
+    all_var_pd = pd.read_csv(all_var_file)
+    cell_id_list = all_var_pd['cell_id'].unique()
+    date_list = pd.date_range(start=start_date, end=end_date, freq='D').astype(str)
+    rows = date_list
+    cols = cell_id_list
+
+    for var in var_list:
+        print(f"Processing {var}")
+        all_single_var_file = f"{github_dir}/data/ready_for_testing/gridmet_{var}_all.csv"
+        new_var_pd = pd.DataFrame(([0.0 for col in cols] for row in rows), index=rows, columns=cols)
+        var_pd = all_var_pd[['date', 'cell_id', var]]
+        for i, row in var_pd.iterrows():
+            cdate = row['date']
+            xdate = dt.strptime(cdate, "%Y-%m-%d %H:%M:%S")
+            sdate = xdate.strftime("%Y-%m-%d")
+            newval = row[var]
+            cellid = row['cell_id']
+            if newval != 0:
+                new_var_pd.at[sdate, cellid] = float(newval)
+
+        new_var_pd.to_csv(all_single_var_file)
+        print(f"Done processing {var}")
+        print("saved to", all_single_var_file)
+ 
 def prepare_testing_csv():
   """
   MOD model:
@@ -214,10 +244,12 @@ def prepare_testing_csv():
   all_ready_file = f"{github_dir}/data/ready_for_testing/all_ready_3.csv"
   if os.path.exists(all_ready_file):
     os.remove(all_ready_file)
-  
+  """ 
   all_mod_file = f"{github_dir}/data/ready_for_testing/modis_all.csv"
   modis_all_pd = pd.read_csv(all_mod_file, header=0, index_col = 0)
   modis_all_np = modis_all_pd.to_numpy()
+
+ 
   
   all_sentinel1_file = f"{github_dir}/data/ready_for_testing/sentinel1_all.csv"
   sentinel1_all_pd = pd.read_csv(all_sentinel1_file, header=0, index_col = 0)
@@ -254,13 +286,39 @@ def prepare_testing_csv():
   all_gridmet_vs_file = f"{github_dir}/data/ready_for_testing/gridmet_vs_all.csv"
   gridmet_vs_all_pd = pd.read_csv(all_gridmet_vs_file, header=0, index_col = 0)
   gridmet_vs_all_np = gridmet_vs_all_pd.to_numpy()
-  
+  """
   grid_terrain_file = f"{github_dir}/data/terrain/gridcells_eval_terrainData.csv"
   grid_terrain_pd = pd.read_csv(grid_terrain_file, header=0, index_col = 0)
   grid_terrain_np = grid_terrain_pd.to_numpy()
   
+  
+  
+ 
+  data_dir = os.path.join(github_dir, 'data/ready_for_testing')
+
+  data_files = ['modis_all.csv', 'sentinel1_all.csv', 'gridmet_eto_all.csv', 'gridmet_pr_all.csv', 'gridmet_rmax_all.csv', 'gridmet_rmin_all.csv', 'gridmet_tmmn_all.csv', 'gridmet_tmmx_all.csv', 'gridmet_vpd_all.csv', 'gridmet_vs_all.csv',]
+
+  data_dict = {}
+
+  for file_name in data_files:
+    file_path = os.path.join(data_dir, file_name)
+    pd_df = pd.read_csv(file_path, header=0, index_col=0)
+    np_arr = pd_df.to_numpy()
+    file_name_pd = file_name.split('.')[0] + '_pd'
+    file_name_np = file_name.split('.')[0] + '_np'
+    data_dict[file_name_pd] = pd_df
+    data_dict[file_name_np] = np_arr
+  
+  
+  modis_all_pd, modis_all_np, sentinel1_all_pd, sentinel1_all_np, gridmet_eto_all_pd, gridmet_eto_all_np, gridmet_pr_all_pd, gridmet_pr_all_np, gridmet_rmax_all_pd, gridmet_rmax_all_np, gridmet_rmin_all_pd, gridmet_rmin_all_np, gridmet_tmmn_all_pd, gridmet_tmmn_all_np, gridmet_tmmx_all_pd, gridmet_tmmx_all_np, gridmet_vpd_all_pd, gridmet_vpd_all_np, gridmet_vs_all_pd, gridmet_vs_all_np = (data_dict[k] for k in data_dict.keys())
+
+# now you can use modis_all_pd, modis_all_np, sentinel1_all_pd, etc. directly in your code without repeating the dictionary lookups.
+  
   sentinel1_all_pd = sentinel1_all_pd[:modis_all_pd.shape[0]]
   
+  
+  pd_file_list = [data_dict[k] for k in data_dict.keys() if k.endswith('_pd')]
+  np_file_list = [data_dict[k] for k in data_dict.keys() if k.endswith('_np')]
   
   
   print("modis_all_size: ", modis_all_pd.shape)
@@ -279,8 +337,11 @@ def prepare_testing_csv():
   print("training_feature_pd size: ", training_feature_pd.shape)
   print("testing_feature_pd size: ", testing_feature_pd.shape)
   print("grid_terrain_np shape: ", grid_terrain_np.shape)
+  '''
+  min_len = min( modis_all_pd.shape[0], sentinel1_all_pd.shape[0], gridmet_rmax_all_pd.shape[0], gridmet_eto_all_pd.shape[0], gridmet_vpd_all_pd.shape[0], gridmet_pr_all_pd.shape[0], gridmet_rmin_all_pd.shape[0], gridmet_tmmn_all_pd.shape[0], gridmet_tmmx_all_pd.shape[0], gridmet_vs_all_pd.shape[0], grid_terrain_pd.shape[0] ) '''
+  min_len = min([df.shape[0] for df in pd_file_list])
   
-  min_len = min( modis_all_pd.shape[0], sentinel1_all_pd.shape[0], gridmet_rmax_all_pd.shape[0], gridmet_eto_all_pd.shape[0], gridmet_vpd_all_pd.shape[0], gridmet_pr_all_pd.shape[0], gridmet_rmin_all_pd.shape[0], gridmet_tmmn_all_pd.shape[0], gridmet_tmmx_all_pd.shape[0], gridmet_vs_all_pd.shape[0], grid_terrain_pd.shape[0] )
+  print(min_len)
   
   cell_id_list = modis_all_pd.columns.values
   
@@ -305,6 +366,7 @@ def prepare_testing_csv():
   cell_id_np = np.expand_dims(cell_id_list, axis=0)
   cell_id_np = np.repeat(cell_id_np, min_len, axis=0)
   cell_id_np = np.expand_dims(cell_id_np, axis=2)
+  cell_id_np = np.pad(cell_id_np, ((0, 0), (0, 5), (0, 0)), mode='constant')
   print("cell_id_np shape: ", cell_id_np.shape)
   
   grid_terrain_np = np.expand_dims(grid_terrain_np, axis=0)
@@ -318,13 +380,18 @@ def prepare_testing_csv():
     date_np[i, :, 1] = date_time_obj.month
     date_np[i, :, 2] = date_time_obj.timetuple().tm_yday
   
-  new_np = np.concatenate((cell_id_np, date_np, modis_all_np, sentinel1_all_np, gridmet_eto_all_np, gridmet_pr_all_np, gridmet_rmax_all_np, gridmet_rmin_all_np, gridmet_tmmn_all_np, gridmet_tmmx_all_np, gridmet_vpd_all_np, gridmet_vs_all_np, grid_terrain_np), axis=2)
+  print("date_np shape: " ,date_np.shape)
+  # creae sample data
+  
+# truncate cell_id_np along second dimension
+  cell_id_np_trunc = cell_id_np[:, :20785, :]
+  
+  new_np = np.concatenate((cell_id_np_trunc, date_np, modis_all_np, sentinel1_all_np, gridmet_eto_all_np, gridmet_pr_all_np, gridmet_rmax_all_np, gridmet_rmin_all_np, gridmet_tmmn_all_np, gridmet_tmmx_all_np, gridmet_vpd_all_np, gridmet_vs_all_np, grid_terrain_np), axis=2)
   print("new numpy shape: ", new_np.shape)
   
   new_np = new_np.reshape(-1,new_np.shape[-1])
   print("reshaped: ", new_np.shape)
-  
-  #all_training_pd = pd.DataFrame(columns=["cell_id", "year", "m", "doy", "ndsi", "grd", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs", "lat", "lon", "elevation", "aspect", "curvature", "slope", "eastness", "northness", "swe"])
+   #all_training_pd = pd.DataFrame(columns=["cell_id", "year", "m", "doy", "ndsi", "grd", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs", "lat", "lon", "elevation", "aspect", "curvature", "slope", "eastness", "northness", "swe"])
   all_testing_pd = pd.DataFrame(new_np, columns=["cell_id", "year", "m", "doy", "ndsi", "grd", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs", "lat", "lon", "elevation", "aspect", "curvature", "slope", "eastness", "northness"])
   
   #print("MODIS all np shape: ", modis_all_np.shape)
@@ -332,15 +399,15 @@ def prepare_testing_csv():
   
   #print("Head", all_testing_pd.head())
   all_testing_pd.to_csv(all_ready_file)
-  print("created: ", all_ready_3.csv)
+  print("created: ", all_ready_file)
   
-  
+ 
   
 #exit() # done already
 
-integrate_modis()
-integrate_sentinel1()
-integrate_gridmet()
+#integrate_modis()
+#integrate_sentinel1()
+#integrate_gridmet()
 prepare_testing_csv()
 
 

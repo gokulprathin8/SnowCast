@@ -6,8 +6,9 @@ from datetime import date
 from snowcast_utils import *
 import traceback
 import eeauth as e
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
-exit() # done, uncomment if you want to download new files.
+#exit() # done, uncomment if you want to download new files.
 
 try:
     ee.Initialize(e.creds())
@@ -30,8 +31,8 @@ product_name = f'MODIS/006/MOD10A1'
 var_name = 'NDSI'
 column_name = 'mod10a1_ndsi'
 #start_date = "2022-04-20"#test_start_date
-start_date = findLastStopDate(f"{github_dir}/data/sat_testing/modis", "%Y-%m-%d")
-end_date = test_end_date
+#start_date = findLastStopDate(f"{github_dir}/data/sat_testing/modis", "%Y-%m-%d")
+#end_date = test_end_date
 
 final_csv_file = f"{homedir}/Documents/GitHub/SnowCast/data/sat_testing/{org_name}/{column_name}_{start_date}_{end_date}.csv"
 print(f"Results will be saved to {final_csv_file}")
