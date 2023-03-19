@@ -1,4 +1,5 @@
 from datetime import date
+from datetime import datetime, timedelta
 import json
 import pandas as pd
 import ee
@@ -11,17 +12,17 @@ import numpy as np
 import os.path
 import math
 import datetime
-
 today = date.today()
 
 # dd/mm/YY
 d1 = today.strftime("%Y-%m-%d")
+d1 = today - timedelta(days=3)
 print("today date =", d1)
 
 train_start_date = ""
 train_end_date = ""
 
-test_start_date = "2022-01-01"
+test_start_date = "2023-03-01"
 test_end_date = d1
 
 # read the grid geometry file
@@ -45,7 +46,7 @@ def create_cell_location_csv():
     os.remove(all_cell_coords_file)
 
   grid_coords_df = pd.DataFrame(columns=["cell_id", "lat", "lon"])
-  print(grid_coords_df.head())
+  #print(grid_coords_df.head())
   gridcells = geojson.load(open(gridcells_file))
   for idx,cell in enumerate(gridcells['features']):
     
@@ -67,18 +68,21 @@ def get_latest_date_from_an_array(arr, date_format):
 def findLastStopDate(target_testing_dir, data_format):
   date_list = []
   for filename in os.listdir(target_testing_dir):
+    
     f = os.path.join(target_testing_dir, filename)
     # checking if it is a file
     if os.path.isfile(f) and ".csv" in f:
         pdf = pd.read_csv(f,header=0, index_col=0)
+        #print(pdf)
         date_list = np.concatenate((date_list, pdf.index.unique()))
+        
   latest_date = get_latest_date_from_an_array(date_list, data_format)
-  print(latest_date)
+  #print(latest_date)
   date_time_obj = datetime.datetime.strptime(latest_date, data_format)
   return date_time_obj.strftime("%Y-%m-%d")
 
 #create_cell_location_csv()
-findLastStopDate(f"{github_dir}/data/sim_testing/gridmet/", "%Y-%m-%d %H:%M:%S")
+findLastStopDate(f"/home/chetana/Documents/GitHub/SnowCast/data/sim_training/gridmet/", "%Y-%m-%d %H:%M:%S")
 #findLastStopDate(f"{github_dir}/data/sat_testing/sentinel1/", "%Y-%m-%d %H:%M:%S")
 #findLastStopDate(f"{github_dir}/data/sat_testing/modis/", "%Y-%m-%d")
 

@@ -4,9 +4,11 @@
 
 from all_dependencies import *
 from snowcast_utils import *
+import eeauth as e
+from snowcast_utils import test_start_date as start_date, test_end_date as end_date
 
 try:
-    ee.Initialize()
+    ee.Initialize(e.creds())
 except Exception as e:
     ee.Authenticate() # this must be run in terminal instead of Geoweaver. Geoweaver doesn't support prompt.
     ee.Initialize()
@@ -26,8 +28,8 @@ all_cell_coords_file = f"{github_dir}/data/snowcast_provided/all_cell_coords_fil
 all_cell_coords_df = pd.read_csv(all_cell_coords_file, header=0, index_col=0)
 
 #start_date = "2022-04-20"#test_start_date
-start_date = findLastStopDate(f"{github_dir}/data/sat_testing/sentinel1","%Y-%m-%d %H:%M:%S")
-end_date = test_end_date
+#start_date = findLastStopDate(f"{github_dir}/data/sat_testing/sentinel1","%Y-%m-%d %H:%M:%S")
+#end_date = test_end_date
 
 org_name = 'sentinel1'
 product_name = 'COPERNICUS/S1_GRD'
@@ -58,12 +60,11 @@ for current_cell_id in submission_format_df.index:
       # identify a 500 meter buffer around our Point Of Interest (POI)
       poi = ee.Geometry.Point(longitude, latitude).buffer(10)
 
-      viirs = ee.ImageCollection(product_name) \
-          	.filterDate(start_date, end_date) \
-            .filterBounds(poi) \
-          	.filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV')) \
-      		.select('VV')
-      
+      viirs = (ee.ImageCollection(product_name)
+               .filterDate(start_date, end_date)
+               .filterBounds(poi)
+             .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV'))
+               .select('VV'))
       def poi_mean(img):
           reducer = img.reduceRegion(reducer=ee.Reducer.mean(), geometry=poi)
           mean = reducer.get(var_name)

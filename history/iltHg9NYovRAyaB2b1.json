@@ -1,0 +1,291 @@
+[{
+  "history_id" : "d3phsm6503y",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207175,
+  "history_end_time" : 1678884438315,
+  "history_notes" : null,
+  "history_process" : "78vedq",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "6vl3co6equb",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207177,
+  "history_end_time" : 1678884438315,
+  "history_notes" : null,
+  "history_process" : "mxpyqt",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "cl79be8owgh",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207179,
+  "history_end_time" : 1678884438316,
+  "history_notes" : null,
+  "history_process" : "c2xkhz",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "sd62wzp0q5t",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207181,
+  "history_end_time" : 1678884438316,
+  "history_notes" : null,
+  "history_process" : "rauqsh",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "c62g32jxbwu",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884438316,
+  "history_notes" : null,
+  "history_process" : "mi3e5n",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "i78n2len1ev",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207187,
+  "history_end_time" : 1678884438321,
+  "history_notes" : null,
+  "history_process" : "u7xh2p",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "csn219nybkh",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884438321,
+  "history_notes" : null,
+  "history_process" : "2wkl6e",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "d2zmndc67zm",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884438322,
+  "history_notes" : null,
+  "history_process" : "i2fynz",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ngtrwnjtwha",
+  "history_input" : "from model_creation_rf import RandomForestHole\nfrom model_creation_xgboost import XGBoostHole\n\nprint(\"Train Models\")\n\nworm_holes = [RandomForestHole(), XGBoostHole()]\n\nfor hole in worm_holes:\n  hole.preprocessing()\n  print(\"Training_X model shape:\",hole.train_x.shape)\n  print(\"Training_Y model shape:\",hole.train_y.shape)\n  hole.train()\n  hole.test()\n  hole.evaluate()\n  hole.save()\n  \nprint(\"Finished training and validating all the models.\")\n",
+  "history_output" : "Train Models\nall columns:  ['year', 'm', 'day', 'eto', 'pr', 'rmax', 'rmin', 'tmmn', 'tmmx', 'vpd', 'vs', 'lat', 'lon', 'elevation', 'aspect', 'curvature', 'slope', 'eastness', 'northness', 'swe_0719', 'depth_0719', 'swe_snotel']\n<generator object BaseHole.preprocessing.<locals>.<genexpr> at 0x7f6da24d4740>\n",
+  "history_begin_time" : 1678884208248,
+  "history_end_time" : 1678884438323,
+  "history_notes" : null,
+  "history_process" : "e8k4wq",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "m63i554ok82",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884438324,
+  "history_notes" : null,
+  "history_process" : "h1qp9v",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "8kefkvpuj4a",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207233,
+  "history_end_time" : 1678884438325,
+  "history_notes" : null,
+  "history_process" : "urd0nk",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "nftq58usaok",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207236,
+  "history_end_time" : 1678884438325,
+  "history_notes" : null,
+  "history_process" : "525l8q",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "dwuql1q3god",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207240,
+  "history_end_time" : 1678884438325,
+  "history_notes" : null,
+  "history_process" : "7temiv",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "w7fykfvbic4",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207254,
+  "history_end_time" : 1678884438325,
+  "history_notes" : null,
+  "history_process" : "rmxece",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "bbf91y5cem4",
+  "history_input" : "# This script will download modis data for all the testing sites from Google Earth Engine.\n# The start date is the last stop date of the last run.\n\nfrom all_dependencies import *\nfrom datetime import date\nfrom snowcast_utils import *\nimport traceback\nimport eeauth as e\nfrom snowcast_utils import test_start_date as start_date, test_end_date as end_date\n\n#exit() # done, uncomment if you want to download new files.\n\ntry:\n    ee.Initialize(e.creds())\nexcept Exception as e:\n    ee.Authenticate() # this must be run in terminal instead of Geoweaver. Geoweaver doesn't support prompt.\n    ee.Initialize()\n\n# read the grid geometry file\nhomedir = os.path.expanduser('~')\ngithub_dir = f\"{homedir}/Documents/GitHub/SnowCast\"\n# read grid cell\nsubmission_format_file = f\"{github_dir}/data/snowcast_provided/submission_format_eval.csv\"\nsubmission_format_df = pd.read_csv(submission_format_file, header=0, index_col=0)\n\nall_cell_coords_file = f\"{github_dir}/data/snowcast_provided/all_cell_coords_file.csv\"\nall_cell_coords_df = pd.read_csv(all_cell_coords_file, header=0, index_col=0)\n\norg_name = 'modis'\nproduct_name = f'MODIS/006/MOD10A1'\nvar_name = 'NDSI'\ncolumn_name = 'mod10a1_ndsi'\n#start_date = \"2022-04-20\"#test_start_date\n#start_date = findLastStopDate(f\"{github_dir}/data/sat_testing/modis\", \"%Y-%m-%d\")\n#end_date = test_end_date\n\nfinal_csv_file = f\"{homedir}/Documents/GitHub/SnowCast/data/sat_testing/{org_name}/{column_name}_{start_date}_{end_date}.csv\"\nprint(f\"Results will be saved to {final_csv_file}\")\n\nif os.path.exists(final_csv_file):\n    #print(\"exists exiting..\")\n    #exit()\n    os.remove(final_csv_file)\n\nall_cell_df = pd.DataFrame(columns = ['date', column_name, 'cell_id', 'latitude', 'longitude'])\nprint(\"start to traverse the cells in submission_format_eval.csv..\")\n\nfor current_cell_id in submission_format_df.index:\n    \n    try:\n      \n  \t  longitude = all_cell_coords_df['lon'][current_cell_id]\n  \t  latitude = all_cell_coords_df['lat'][current_cell_id]\n\n  \t  # identify a 500 meter buffer around our Point Of Interest (POI)\n  \t  poi = ee.Geometry.Point(longitude, latitude).buffer(30)\n\n  \t  def poi_mean(img):\n  \t      reducer = img.reduceRegion(reducer=ee.Reducer.mean(), geometry=poi, scale=30)\n  \t      mean = reducer.get(var_name)\n  \t      return img.set('date', img.date().format()).set(column_name,mean)\n        \n  \t  viirs1 = ee.ImageCollection(product_name).filterDate(start_date, end_date)\n  \t  poi_reduced_imgs1 = viirs1.map(poi_mean)\n  \t  nested_list1 = poi_reduced_imgs1.reduceColumns(ee.Reducer.toList(2), ['date',column_name]).values().get(0)\n  \t  # dont forget we need to call the callback method \"getInfo\" to retrieve the data\n  \t  df = pd.DataFrame(nested_list1.getInfo(), columns=['date',column_name])\n      \n  \t  df['date'] = pd.to_datetime(df['date'])\n  \t  df = df.set_index('date')\n  \t  df['cell_id'] = current_cell_id\n  \t  df['latitude'] = latitude\n  \t  df['longitude'] = longitude\n  \t  #df.to_csv(single_csv_file)\n\n  \t  df_list = [all_cell_df, df]\n  \t  all_cell_df = pd.concat(df_list) # merge into big dataframe\n      \n    except Exception as e:\n      print(traceback.format_exc())\n      print(\"failed\", e)\n      pass\n    \n    \nall_cell_df.to_csv(final_csv_file)  \n\nprint(f\"All points have been saved to {final_csv_file}\")\n\n\n",
+  "history_output" : "today date = 2023-03-15\n/home/chetana\nResults will be saved to /home/chetana/Documents/GitHub/SnowCast/data/sat_testing/modis/mod10a1_ndsi_2022-03-01_2023-03-15.csv\nstart to traverse the cells in submission_format_eval.csv..\n",
+  "history_begin_time" : 1678884241421,
+  "history_end_time" : 1678884438326,
+  "history_notes" : null,
+  "history_process" : "illwc1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "xzrt16h3z5e",
+  "history_input" : "\n\n# reminder that if you are installing libraries in a Google Colab instance you will be prompted to restart your kernal\n\nfrom all_dependencies import *\nfrom snowcast_utils import *\nimport eeauth as e\nfrom snowcast_utils import test_start_date as start_date, test_end_date as end_date\n\ntry:\n    ee.Initialize(e.creds())\nexcept Exception as e:\n    ee.Authenticate() # this must be run in terminal instead of Geoweaver. Geoweaver doesn't support prompt.\n    ee.Initialize()\n\n# read the grid geometry file\nhomedir = os.path.expanduser('~')\nprint(homedir)\n# read grid cell\ngithub_dir = f\"{homedir}/Documents/GitHub/SnowCast\"\n# read grid cell\nsubmission_format_file = f\"{github_dir}/data/snowcast_provided/submission_format_eval.csv\"\nsubmission_format_df = pd.read_csv(submission_format_file, header=0, index_col=0)\n\nprint(\"submission_format_df shape: \", submission_format_df.shape)\n\nall_cell_coords_file = f\"{github_dir}/data/snowcast_provided/all_cell_coords_file.csv\"\nall_cell_coords_df = pd.read_csv(all_cell_coords_file, header=0, index_col=0)\n\n#start_date = \"2022-04-20\"#test_start_date\n#start_date = findLastStopDate(f\"{github_dir}/data/sat_testing/sentinel1\",\"%Y-%m-%d %H:%M:%S\")\n#end_date = test_end_date\n\norg_name = 'sentinel1'\nproduct_name = 'COPERNICUS/S1_GRD'\nvar_name = 'VV'\ncolumn_name = 's1_grd_vv'\n\nfinal_csv_file = f\"{homedir}/Documents/GitHub/SnowCast/data/sat_testing/{org_name}/{column_name}_{start_date}_{end_date}.csv\"\nprint(f\"Results will be saved to {final_csv_file}\")\n\n\nif os.path.exists(final_csv_file):\n    #print(\"exists skipping..\")\n    #exit()\n    os.remove(final_csv_file)\n\n\nall_cell_df = pd.DataFrame(columns = ['date', column_name, 'cell_id', 'latitude', 'longitude'])\n\nfor current_cell_id in submission_format_df.index:\n  \n    try:\n  \t\n      #print(\"collecting \", current_cell_id)\n      \n      longitude = all_cell_coords_df['lon'][current_cell_id]\n      latitude = all_cell_coords_df['lat'][current_cell_id]\n\n      # identify a 500 meter buffer around our Point Of Interest (POI)\n      poi = ee.Geometry.Point(longitude, latitude).buffer(10)\n\n      viirs = (ee.ImageCollection(product_name)\n               .filterDate(start_date, end_date)\n               .filterBounds(poi)\n             .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV'))\n               .select('VV'))\n      def poi_mean(img):\n          reducer = img.reduceRegion(reducer=ee.Reducer.mean(), geometry=poi)\n          mean = reducer.get(var_name)\n          return img.set('date', img.date().format()).set(column_name,mean)\n\n      poi_reduced_imgs = viirs.map(poi_mean)\n\n      nested_list = poi_reduced_imgs.reduceColumns(ee.Reducer.toList(2), ['date',column_name]).values().get(0)\n\n      # dont forget we need to call the callback method \"getInfo\" to retrieve the data\n      df = pd.DataFrame(nested_list.getInfo(), columns=['date',column_name])\n\n      df['date'] = pd.to_datetime(df['date'])\n      df = df.set_index('date')\n\n      df['cell_id'] = current_cell_id\n      df['latitude'] = latitude\n      df['longitude'] = longitude\n\n      df_list = [all_cell_df, df]\n      all_cell_df = pd.concat(df_list) # merge into big dataframe\n      \n    except Exception as e:\n      \n      #print(e)\n      pass\n    \nall_cell_df.to_csv(final_csv_file)\n\n",
+  "history_output" : "",
+  "history_begin_time" : 1678884244705,
+  "history_end_time" : 1678884438327,
+  "history_notes" : null,
+  "history_process" : "sjs5by",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "2xrf6syfpue",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207273,
+  "history_end_time" : 1678884438327,
+  "history_notes" : null,
+  "history_process" : "y7nb46",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ggdfmiwj4g2",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207276,
+  "history_end_time" : 1678884438328,
+  "history_notes" : null,
+  "history_process" : "a8p3n7",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "hpcz2wvy6wz",
+  "history_input" : "null",
+  "history_output" : "Traceback (most recent call last):\n",
+  "history_begin_time" : 1678884241455,
+  "history_end_time" : 1678884438328,
+  "history_notes" : null,
+  "history_process" : "smsdr0",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "n4ym5kq741h",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207285,
+  "history_end_time" : 1678884438328,
+  "history_notes" : null,
+  "history_process" : "4i0sop",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ptlqhm1d22b",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678884438328,
+  "history_notes" : null,
+  "history_process" : "b63prf",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "og5mzurjnxq",
+  "history_input" : "from datetime import date\nimport json\nimport pandas as pd\nimport ee\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport os\nimport geopandas as gpd\nimport geojson\nimport numpy as np\nimport os.path\nimport math\nimport datetime\n\ntoday = date.today()\n\n# dd/mm/YY\nd1 = today.strftime(\"%Y-%m-%d\")\nprint(\"today date =\", d1)\n\ntrain_start_date = \"\"\ntrain_end_date = \"\"\n\ntest_start_date = \"2022-03-01\"\ntest_end_date = d1\n\n# read the grid geometry file\nhomedir = os.path.expanduser('~')\nprint(homedir)\ngithub_dir = f\"{homedir}/Documents/GitHub/SnowCast\"\n\n\ndef calculateDistance(lat1, lon1, lat2, lon2):\n    lat1 = float(lat1)\n    lon1 = float(lon1)\n    lat2 = float(lat2)\n    lon2 = float(lon2)\n    return math.sqrt((lat1-lat2)**2 + (lon1-lon2)**2)\n\ndef create_cell_location_csv():\n  # read grid cell\n  gridcells_file = f\"{github_dir}/data/snowcast_provided/grid_cells_eval.geojson\"\n  all_cell_coords_file = f\"{github_dir}/data/snowcast_provided/all_cell_coords_file.csv\"\n  if os.path.exists(all_cell_coords_file):\n    os.remove(all_cell_coords_file)\n\n  grid_coords_df = pd.DataFrame(columns=[\"cell_id\", \"lat\", \"lon\"])\n  #print(grid_coords_df.head())\n  gridcells = geojson.load(open(gridcells_file))\n  for idx,cell in enumerate(gridcells['features']):\n    \n    current_cell_id = cell['properties']['cell_id']\n    cell_lon = np.unique(np.ravel(cell['geometry']['coordinates'])[0::2]).mean()\n    cell_lat = np.unique(np.ravel(cell['geometry']['coordinates'])[1::2]).mean()\n    grid_coords_df.loc[len(grid_coords_df.index)] = [current_cell_id, cell_lat, cell_lon]\n    \n  #grid_coords_np = grid_coords_df.to_numpy()\n  #print(grid_coords_np.shape)\n  grid_coords_df.to_csv(all_cell_coords_file, index=False)\n  #np.savetxt(all_cell_coords_file, grid_coords_np[:, 1:], delimiter=\",\")\n  #print(grid_coords_np.shape)\n  \ndef get_latest_date_from_an_array(arr, date_format):\n  return max(arr, key=lambda x: datetime.datetime.strptime(x, date_format))\n  \n  \ndef findLastStopDate(target_testing_dir, data_format):\n  date_list = []\n  for filename in os.listdir(target_testing_dir):\n    \n    f = os.path.join(target_testing_dir, filename)\n    # checking if it is a file\n    if os.path.isfile(f) and \".csv\" in f:\n        pdf = pd.read_csv(f,header=0, index_col=0)\n        #print(pdf)\n        date_list = np.concatenate((date_list, pdf.index.unique()))\n        \n  latest_date = get_latest_date_from_an_array(date_list, data_format)\n  #print(latest_date)\n  date_time_obj = datetime.datetime.strptime(latest_date, data_format)\n  return date_time_obj.strftime(\"%Y-%m-%d\")\n\n#create_cell_location_csv()\nfindLastStopDate(f\"/home/chetana/Documents/GitHub/SnowCast/data/sim_training/gridmet/\", \"%Y-%m-%d %H:%M:%S\")\n#findLastStopDate(f\"{github_dir}/data/sat_testing/sentinel1/\", \"%Y-%m-%d %H:%M:%S\")\n#findLastStopDate(f\"{github_dir}/data/sat_testing/modis/\", \"%Y-%m-%d\")\n\n\n\n      \n",
+  "history_output" : "today date = 2023-03-15\n/home/chetana\n",
+  "history_begin_time" : 1678884213986,
+  "history_end_time" : 1678884438331,
+  "history_notes" : null,
+  "history_process" : "zh38b6",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "xomawn5x1b6",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207310,
+  "history_end_time" : 1678884438332,
+  "history_notes" : null,
+  "history_process" : "wdh394",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "k8wiqt6afzh",
+  "history_input" : "\nimport requests\nimport pandas as pd\nfrom bs4 import BeautifulSoup\n\nnohrsc_url_format_string = \"https://www.nohrsc.noaa.gov/nearest/index.html?city={lat}%2C{lon}&county=&l=5&u=e&y={year}&m={month}&d={day} \"\ntest_noaa_query_url = nohrsc_url_format_string.format(lat=40.05352381745094, lon=-106.04027196859343, year=2022, month=5, day=4)\n\nprint(f\"url: {test_noaa_query_url}\")\n\nresponse = requests.get(test_noaa_query_url, headers={'User-Agent': 'Mozilla'})\nparsed_html = BeautifulSoup(response.text, features='lxml')\ncontainer_div = parsed_html.find(\"div\", attrs={'class': 'container'})\nif container_div:\n    container_div = container_div.get_text()\nelse:\n    print(\"could not find div the class 'container'\")\n\nlive_stats = parsed_html.find_all('table', attrs={'class': 'gray_data_table'})\ntables = pd.read_html(str(live_stats))\n\ntable_sequence = [\n        'Raw Snowfall Observations',\n        'Snow Depth',\n        'Snow Water Equivalent Observations',\n        'Raw Precipitation Observations'\n    ]\nfor idx, t in enumerate(tables):\n    print(table_sequence[idx])\n    print(t)\n    print('--------------------')",
+  "history_output" : "url: https://www.nohrsc.noaa.gov/nearest/index.html?city=40.05352381745094%2C-106.04027196859343&county=&l=5&u=e&y=2022&m=5&d=4 \ncould not find div the class 'container'\nRaw Snowfall Observations\n  Station ID                  Name  ...     Date (UTC)    Distance\n0   CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1      WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2   CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3   CO-GR-53  TABERNASH 1.9 NW, CO  ...  2022-05-15 06  9.5 mi ESE\n4   CO-GR-86  PARSHALL 8.8 SSE, CO  ...  2022-05-15 15    10 mi SW\n\n[5 rows x 7 columns]\n--------------------\nSnow Depth\n    Station ID                  Name  ...     Date (UTC)    Distance\n0     CO-GR-68  TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n1        WIFC2     WILLIAMS FORK DAM  ...  2022-05-15 13    8.7 mi W\n2     CO-GR-52  PARSHALL 3.0 NNW, CO  ...  2022-05-15 13  8.9 mi WNW\n3        SCSC2      STILLWATER CREEK  ...  2022-05-16 05  13.7 mi NE\n4  CAFLC_MADIS            FOOL CREEK  ...  2022-05-16 05  14.8 mi SE\n\n[5 rows x 6 columns]\n--------------------\nSnow Water Equivalent Observations\n  Station ID               Name  ...     Date (UTC)     Distance\n0      SCSC2   STILLWATER CREEK  ...  2022-05-15 17   13.7 mi NE\n1      FCVC2         FOOL CREEK  ...  2022-05-16 03   15.5 mi SE\n2      MFKC2   MIDDLE FORK CAMP  ...  2022-05-16 02    17.6 mi S\n3      WLLC2  WILLOW CREEK PASS  ...  2022-05-16 05    20.7 mi N\n4      JNPC2         JONES PASS  ...  2022-05-16 04  20.9 mi SSE\n\n[5 rows x 6 columns]\n--------------------\nRaw Precipitation Observations\n  Station ID                        Name  ...     Date (UTC)    Distance\n0      CAWC2  COLORADO RVR BLW WINDY GAP  ...  2022-05-16 06  4.5 mi NNE\n1   CO-GR-68        TABERNASH 2.7 NW, CO  ...  2022-05-15 13  8.7 mi ESE\n2      GRUC2             GROUSE MOUNTAIN  ...  2022-05-16 05  9.3 mi WNW\n3      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n4      KSEC2                KEYSER RIDGE  ...  2022-05-16 05     11 mi S\n\n[5 rows x 7 columns]\n--------------------\n",
+  "history_begin_time" : 1678884241421,
+  "history_end_time" : 1678884438332,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "wwjyvzbi2er",
+  "history_input" : "from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import mean_squared_error\nfrom sklearn import metrics \nfrom sklearn import tree\nimport joblib\nimport os\nfrom pathlib import Path\nimport json\nimport geopandas as gpd\nimport geojson\nimport os.path\nimport math\nfrom sklearn.model_selection import RandomizedSearchCV\n\nimport json\nimport pandas as pd\nimport ee\nimport eeauth \nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport os\nimport geopandas as gpd\nimport geojson\nimport numpy as np\nimport os.path\n\n#pd.set_option('display.max_columns', None)\n",
+  "history_output" : "Running",
+  "history_begin_time" : 1678884209594,
+  "history_end_time" : 1678884438332,
+  "history_notes" : null,
+  "history_process" : "ilbqzg",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "5pqv9l5x17m",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207338,
+  "history_end_time" : 1678884438333,
+  "history_notes" : null,
+  "history_process" : "do86ae",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "n5hoa064oh3",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207342,
+  "history_end_time" : 1678884438333,
+  "history_notes" : null,
+  "history_process" : "gkhtc0",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "hr93w8dmntp",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207344,
+  "history_end_time" : 1678884438334,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "do4voej56i9",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207346,
+  "history_end_time" : 1678884438334,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+}]
