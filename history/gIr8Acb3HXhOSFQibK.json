@@ -1,0 +1,331 @@
+[{
+  "history_id" : "zuwh69r8oa4",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798010,
+  "history_end_time" : 1682984800259,
+  "history_notes" : null,
+  "history_process" : "78vedq",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "szovjsytz8q",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798013,
+  "history_end_time" : 1682984800259,
+  "history_notes" : null,
+  "history_process" : "mxpyqt",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "vw79h5oa8hu",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798014,
+  "history_end_time" : 1682984800260,
+  "history_notes" : null,
+  "history_process" : "c2xkhz",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "txyaebxn5fg",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798015,
+  "history_end_time" : 1682984800260,
+  "history_notes" : null,
+  "history_process" : "rauqsh",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "byzs0ltdqcv",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800261,
+  "history_notes" : null,
+  "history_process" : "mi3e5n",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "juyo3nibpi9",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800269,
+  "history_notes" : null,
+  "history_process" : "u7xh2p",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "cj35gziejw0",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800274,
+  "history_notes" : null,
+  "history_process" : "2wkl6e",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "0nd2k7kwdlq",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800278,
+  "history_notes" : null,
+  "history_process" : "i2fynz",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "sgw5xgujno5",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800280,
+  "history_notes" : null,
+  "history_process" : "e8k4wq",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "3g7r0ugqc7v",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800281,
+  "history_notes" : null,
+  "history_process" : "h1qp9v",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "tde3ho2ij6u",
+  "history_input" : "# Load dependencies\nimport geopandas as gpd\nimport json\nimport geojson\nfrom pystac_client import Client\nimport planetary_computer\nimport xarray\nimport rioxarray\nimport xrspatial\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\nfrom pyproj import Proj, transform\nimport os\nimport sys, traceback\nimport requests\n\nhome_dir = os.path.expanduser('~')\nsnowcast_github_dir = f\"{home_dir}/Documents/GitHub/SnowCast/\"\n\n#exit() # this process no longer need to execute, we need to make Geoweaver to specify which process doesn't need to run\n\n# user-defined paths for data-access\ndata_dir = f'{snowcast_github_dir}data/'\ngridcells_file = data_dir+'snowcast_provided/grid_cells_eval.geojson'\nstations_file = data_dir+'snowcast_provided/ground_measures_metadata.csv'\ngridcells_outfile = data_dir+'terrain/gridcells_terrainData_eval.csv'\nstations_outfile = data_dir+'terrain/station_terrainData_eval.csv'\n\nrequests.get('https://planetarycomputer.microsoft.com/api/stac/v1')\n\n# setup client for handshaking and data-access\nprint(\"setup planetary computer client\")\nclient = Client.open(\"https://planetarycomputer.microsoft.com/api/stac/v1\",ignore_conformance=True)\n\n# Load metadata\ngridcellsGPD = gpd.read_file(gridcells_file)\ngridcells = geojson.load(open(gridcells_file))\nstations = pd.read_csv(stations_file)\n\n# instantiate output panda dataframes\ndf_gridcells = df = pd.DataFrame(columns=(\"Longitude [deg]\",\"Latitude [deg]\",\n                                            \"Elevation [m]\",\"Aspect [deg]\",\n                                            \"Curvature [ratio]\",\"Slope [deg]\",\n                                            \"Eastness [unitCirc.]\",\"Northness [unitCirc.]\"))\ndf_station = pd.DataFrame(columns=(\"Longitude [deg]\",\"Latitude [deg]\",\n                                   \"Elevation [m]\",\"Elevation_30 [m]\",\"Elevation_1000 [m]\",\n                                   \"Aspect_30 [deg]\",\"Aspect_1000 [deg]\",\n                                   \"Curvature_30 [ratio]\",\"Curvature_1000 [ratio]\",\n                                   \"Slope_30 [deg]\",\"Slope_1000 [deg]\",\n                                   \"Eastness_30 [unitCirc.]\",\"Northness_30 [unitCirc.]\",\n                                   \"Eastness_1000 [unitCirc.]\",\"Northness_1000 [unitCirc.]\"))\n\ndef prepareGridCellTerrain():\n  # instantiate output panda dataframes\n  # Calculate gridcell characteristics using Copernicus DEM data\n  print(\"Prepare GridCell Terrain data\")\n  for idx,cell in enumerate(gridcells['features']):\n      print(\"Processing grid \", idx)\n      search = client.search(\n          collections=[\"cop-dem-glo-30\"],\n          intersects={\"type\":\"Polygon\", \"coordinates\":cell['geometry']['coordinates']},\n      )\n      items = list(search.get_items())\n      print(\"==> Searched items: \", len(items))\n\n      cropped_data = None\n      try:\n          signed_asset = planetary_computer.sign(items[0].assets[\"data\"])\n          data = (\n              #xarray.open_rasterio(signed_asset.href)\n              xarray.open_rasterio(signed_asset.href)\n              .squeeze()\n              .drop(\"band\")\n              .coarsen({\"y\": 1, \"x\": 1})\n              .mean()\n          )\n          cropped_data = data.rio.clip(gridcellsGPD['geometry'][idx:idx+1])\n      except:\n          signed_asset = planetary_computer.sign(items[1].assets[\"data\"])\n          data = (\n              xarray.open_rasterio(signed_asset.href)\n              .squeeze()\n              .drop(\"band\")\n              .coarsen({\"y\": 1, \"x\": 1})\n              .mean()\n          )\n          cropped_data = data.rio.clip(gridcellsGPD['geometry'][idx:idx+1])\n\n      # calculate lat/long of center of gridcell\n      longitude = np.unique(np.ravel(cell['geometry']['coordinates'])[0::2]).mean()\n      latitude = np.unique(np.ravel(cell['geometry']['coordinates'])[1::2]).mean()\n\n      print(\"reproject data to EPSG:32612\")\n      # reproject the cropped dem data\n      cropped_data = cropped_data.rio.reproject(\"EPSG:32612\")\n\n      # Mean elevation of gridcell\n      mean_elev = cropped_data.mean().values\n      print(\"Elevation: \", mean_elev)\n\n      # Calculate directional components\n      aspect = xrspatial.aspect(cropped_data)\n      aspect_xcomp = np.nansum(np.cos(aspect.values*(np.pi/180)))\n      aspect_ycomp = np.nansum(np.sin(aspect.values*(np.pi/180)))\n      mean_aspect = np.arctan2(aspect_ycomp,aspect_xcomp)*(180/np.pi)\n      if mean_aspect < 0:\n          mean_aspect = 360 + mean_aspect\n      print(\"Aspect: \", mean_aspect)\n      mean_eastness = np.cos(mean_aspect*(np.pi/180))\n      mean_northness = np.sin(mean_aspect*(np.pi/180))\n      print(\"Eastness: \", mean_eastness)\n      print(\"Northness: \", mean_northness)\n\n      # Positive curvature = upward convex\n      curvature = xrspatial.curvature(cropped_data)\n      mean_curvature = curvature.mean().values\n      print(\"Curvature: \", mean_curvature)\n\n      # Calculate mean slope\n      slope = xrspatial.slope(cropped_data)\n      mean_slope = slope.mean().values\n      print(\"Slope: \", mean_slope)\n\n      # Fill pandas dataframe\n      df_gridcells.loc[idx] = [longitude,latitude,\n                               mean_elev,mean_aspect,\n                               mean_curvature,mean_slope,\n                               mean_eastness,mean_northness]\n\n      # Comment out for debugging/filling purposes\n      # if idx % 250 == 0:\n      #     df_gridcells.set_index(gridcellsGPD['cell_id'][0:idx+1],inplace=True)\n      #     df_gridcells.to_csv(gridcells_outfile)\n\n  # Save output data into csv format\n  df_gridcells.set_index(gridcellsGPD['cell_id'][0:idx+1],inplace=True)\n  df_gridcells.to_csv(gridcells_outfile)\n\ndef prepareStationTerrain():\n  # Calculate terrain characteristics of stations, and surrounding regions using COP 30\n  for idx,station in stations.iterrows():\n      search = client.search(\n          collections=[\"cop-dem-glo-30\"],\n          intersects={\"type\":\"Point\", \"coordinates\":[station['longitude'],station['latitude']]},\n      )\n      items = list(search.get_items())\n      print(f\"Returned {len(items)} items\")\n\n      try:\n          signed_asset = planetary_computer.sign(items[0].assets[\"data\"])\n          data = (\n              xarray.open_rasterio(signed_asset.href)\n              .squeeze()\n              .drop(\"band\")\n              .coarsen({\"y\": 1, \"x\": 1})\n              .mean()\n          )\n          xdiff = np.abs(data.x-station['longitude'])\n          ydiff = np.abs(data.y-station['latitude'])\n          xdiff = np.where(xdiff == xdiff.min())[0][0]\n          ydiff = np.where(ydiff == ydiff.min())[0][0]\n          data = data[ydiff-33:ydiff+33,xdiff-33:xdiff+33].rio.reproject(\"EPSG:32612\")\n      except:\n          traceback.print_exc(file=sys.stdout)\n          signed_asset = planetary_computer.sign(items[1].assets[\"data\"])\n          data = (\n              xarray.open_rasterio(signed_asset.href)\n              .squeeze()\n              .drop(\"band\")\n              .coarsen({\"y\": 1, \"x\": 1})\n              .mean()\n          )\n          xdiff = np.abs(data.x-station['longitude'])\n          ydiff = np.abs(data.y-station['latitude'])\n          xdiff = np.where(xdiff == xdiff.min())[0][0]\n          ydiff = np.where(ydiff == ydiff.min())[0][0]\n          data = data[ydiff-33:ydiff+33,xdiff-33:xdiff+33].rio.reproject(\"EPSG:32612\")\n\n      # Reproject the station data to better include only 1000m surrounding area\n      inProj = Proj(init='epsg:4326')\n      outProj = Proj(init='epsg:32612')\n      new_x,new_y = transform(inProj,outProj,station['longitude'],station['latitude'])\n\n      # Calculate elevation of station and surroundings\n      mean_elevation = data.mean().values\n      elevation = data.sel(x=new_x,y=new_y,method='nearest')\n      print(elevation.values)\n\n      # Calcuate directional components\n      aspect = xrspatial.aspect(data)\n      aspect_xcomp = np.nansum(np.cos(aspect.values*(np.pi/180)))\n      aspect_ycomp = np.nansum(np.sin(aspect.values*(np.pi/180)))\n      mean_aspect = np.arctan2(aspect_ycomp,aspect_xcomp)*(180/np.pi)\n      if mean_aspect < 0:\n          mean_aspect = 360 + mean_aspect\n      print(mean_aspect)\n      aspect = aspect.sel(x=new_x,y=new_y,method='nearest')\n      print(aspect.values)\n      eastness = np.cos(aspect*(np.pi/180))\n      northness = np.sin(aspect*(np.pi/180))\n      mean_eastness = np.cos(mean_aspect*(np.pi/180))\n      mean_northness = np.sin(mean_aspect*(np.pi/180))\n\n      # Positive curvature = upward convex\n      curvature = xrspatial.curvature(data)\n      mean_curvature = curvature.mean().values\n      curvature = curvature.sel(x=new_x,y=new_y,method='nearest')\n      print(curvature.values)\n\n      # Calculate slope\n      slope = xrspatial.slope(data)\n      mean_slope = slope.mean().values\n      slope = slope.sel(x=new_x,y=new_y,method='nearest')\n      print(slope.values)\n\n      # Fill pandas dataframe\n      df_station.loc[idx] = [station['longitude'],station['latitude'],\n                             station['elevation_m'],elevation.values,mean_elevation,\n                             aspect.values,mean_aspect,\n                             curvature.values,mean_curvature,\n                             slope.values,mean_slope,\n                             eastness.values,northness.values,\n                             mean_eastness,mean_northness]\n\n      # Comment out for debugging/filling purposes\n      # if idx % 250 == 0:\n      #     df_station.set_index(stations['station_id'][0:idx+1],inplace=True)\n      #     df_station.to_csv(stations_outfile)\n\n  # Save output data into CSV format\n  df_station.set_index(stations['station_id'][0:idx+1],inplace=True)\n  df_station.to_csv(stations_outfile)\n\ntry:\n  prepareGridCellTerrain()\n  #prepareStationTerrain()\nexcept:\n  traceback.print_exc(file=sys.stdout)\n",
+  "history_output" : "sh: /home/chetana/anaconda3/condabin/python: No such file or directory\n",
+  "history_begin_time" : 1682984798464,
+  "history_end_time" : 1682984801627,
+  "history_notes" : null,
+  "history_process" : "urd0nk",
+  "host_id" : "jf7wuu",
+  "indicator" : "Failed"
+},{
+  "history_id" : "twd6csyqd10",
+  "history_input" : "\n\n# reminder that if you are installing libraries in a Google Colab instance you will be prompted to restart your kernal\n\nimport json\nimport pandas as pd\nimport ee\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport os\nimport geopandas as gpd\nimport geojson\nimport numpy as np\nimport os.path\nimport eeauth as e\n\n#exit() # done, uncomment if you want to download new files.\n\ntry:\n    ee.Initialize(e.creds())\nexcept Exception as e:\n    # the following is for the server\n    #service_account = 'eartheginegcloud@earthengine58.iam.gserviceaccount.com'\n#creds = ee.ServiceAccountCredentials(\n    #service_account, '/home/chetana/bhargavi-creds.json')\n    #ee.Initialize(creds)\n    ee.Authenticate() # this must be run in terminal instead of Geoweaver. Geoweaver doesn't support prompt.\n    ee.Initialize()\n\n# read the grid geometry file\nhomedir = os.path.expanduser('~')\nprint(homedir)\ngithub_dir = f\"{homedir}/Documents/GitHub/SnowCast\"\n# read grid cell\nstation_cell_mapper_file = f\"{github_dir}/data/ready_for_training/station_cell_mapping.csv\"\n\norg_name = 'modis'\nproduct_name = f'MODIS/006/MOD10A1'\nvar_name = 'NDSI'\ncolumn_name = 'mod10a1_ndsi'\n\n#org_name = 'sentinel1'\n#product_name = 'COPERNICUS/S1_GRD'\n#var_name = 'VV'\n#column_name = 's1_grd_vv'\n\nstation_cell_mapper_df = pd.read_csv(station_cell_mapper_file)\n\nall_cell_df = pd.DataFrame(columns = ['date', column_name, 'cell_id', 'latitude', 'longitude'])\n\nfor ind in station_cell_mapper_df.index:\n    \n    try:\n      \n  \t  print(station_cell_mapper_df['station_id'][ind], station_cell_mapper_df['cell_id'][ind])\n  \t  current_cell_id = station_cell_mapper_df['cell_id'][ind]\n  \t  print(\"collecting \", current_cell_id)\n  \t  single_csv_file = f\"{homedir}/Documents/GitHub/SnowCast/data/modis/{column_name}_{current_cell_id}.csv\"\n\n  \t  if os.path.exists(single_csv_file):\n  \t    print(\"exists skipping..\")\n  \t    continue\n\n  \t  longitude = station_cell_mapper_df['lon'][ind]\n  \t  latitude = station_cell_mapper_df['lat'][ind]\n\n  \t  # identify a 500 meter buffer around our Point Of Interest (POI)\n  \t  poi = ee.Geometry.Point(longitude, latitude).buffer(30)\n\n  \t  def poi_mean(img):\n  \t      reducer = img.reduceRegion(reducer=ee.Reducer.mean(), geometry=poi, scale=30)\n  \t      mean = reducer.get(var_name)\n  \t      return img.set('date', img.date().format()).set(column_name,mean)\n        \n  \t  viirs1 = ee.ImageCollection(product_name).filterDate('2013-01-01','2017-12-31')\n  \t  poi_reduced_imgs1 = viirs1.map(poi_mean)\n  \t  nested_list1 = poi_reduced_imgs1.reduceColumns(ee.Reducer.toList(2), ['date',column_name]).values().get(0)\n  \t  # dont forget we need to call the callback method \"getInfo\" to retrieve the data\n  \t  df1 = pd.DataFrame(nested_list1.getInfo(), columns=['date',column_name])\n      \n  \t  viirs2 = ee.ImageCollection(product_name).filterDate('2018-01-01','2021-12-31')\n  \t  poi_reduced_imgs2 = viirs2.map(poi_mean)\n  \t  nested_list2 = poi_reduced_imgs2.reduceColumns(ee.Reducer.toList(2), ['date',column_name]).values().get(0)\n  \t  # dont forget we need to call the callback method \"getInfo\" to retrieve the data\n  \t  df2 = pd.DataFrame(nested_list2.getInfo(), columns=['date',column_name])\n      \n\n  \t  df = pd.concat([df1, df2])\n  \t  df['date'] = pd.to_datetime(df['date'])\n  \t  df = df.set_index('date')\n  \t  df['cell_id'] = current_cell_id\n  \t  df['latitude'] = latitude\n  \t  df['longitude'] = longitude\n  \t  df.to_csv(single_csv_file)\n\n  \t  df_list = [all_cell_df, df]\n  \t  all_cell_df = pd.concat(df_list) # merge into big dataframe\n      \n    except Exception as e:\n      \n  \t  print(e)\n  \t  pass\n    \n    \nall_cell_df.to_csv(f\"{homedir}/Documents/GitHub/SnowCast/data/{org_name}/{column_name}.csv\")  \n\n\n",
+  "history_output" : "sh: /home/chetana/anaconda3/condabin/python: No such file or directory\n",
+  "history_begin_time" : 1682984798465,
+  "history_end_time" : 1682984801591,
+  "history_notes" : null,
+  "history_process" : "525l8q",
+  "host_id" : "jf7wuu",
+  "indicator" : "Failed"
+},{
+  "history_id" : "kgzw1w38lv6",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798045,
+  "history_end_time" : 1682984800286,
+  "history_notes" : null,
+  "history_process" : "7temiv",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "quscp6pga5l",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800286,
+  "history_notes" : null,
+  "history_process" : "rmxece",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "x2i6shv55yu",
+  "history_input" : "import os\nimport pprint\n\n# import gdal\nimport subprocess\nfrom datetime import datetime, timedelta\n\n# set up your credentials using\n# echo 'machine urs.earthdata.nasa.gov login <uid> password <password>' >> ~/.netrc\n\nmodis_download_dir = \"/home/chetana/modis_download_folder/\"\nmodis_downloaded_data = modis_download_dir + \"n5eil01u.ecs.nsidc.org/MOST/MOD10A2.061/\"\ngeo_tiff = modis_download_dir + \"geo-tiff/\"\nvrt_file_dir = modis_download_dir + \"vrt_files/\"\ndir_path = os.path.dirname(os.path.realpath(__file__))\nprint(dir_path)\n\ntile_list = ['h09v04', 'h10v04', 'h11v04', 'h08v04', 'h08v05', 'h09v05', 'h10v05', 'h07v06', 'h08v06', 'h09v06']\n\n\ndef get_files(directory):\n    file_directory = list()\n    complete_directory_structure = dict()\n    for dirpath, dirnames, filenames in os.walk(directory):\n        for filename in filenames:\n            file_path = os.path.join(dirpath, filename)\n            file_directory.append(file_path)\n            complete_directory_structure[str(dirpath).rsplit('/')[-1]] = file_directory\n\n    return complete_directory_structure\n\n\ndef get_latest_date():\n    all_rows = get_web_row_data()\n\n    latest_date = None\n    for row in all_rows:\n        try:\n            new_date = datetime.strptime(row.text[:-1], '%Y.%m.%d')\n            if latest_date is None or latest_date < new_date:\n                latest_date = new_date\n        except:\n            continue\n\n    print(\"Find the latest date: \", latest_date.strftime(\"%Y.%m.%d\"))\n    second_latest_date = latest_date - timedelta(days=8)\n    return second_latest_date\n\n\ndef get_web_row_data():\n    try:\n        from BeautifulSoup import BeautifulSoup\n    except ImportError:\n        from bs4 import BeautifulSoup\n    modis_list_url = \"https://n5eil01u.ecs.nsidc.org/MOST/MOD10A2.061/\"\n    print(\"Source / Product: \" + modis_list_url)\n    if os.path.exists(\"index.html\"):\n        os.remove(\"index.html\")\n    subprocess.run(\n        f'wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies '\n        f'--no-check-certificate --auth-no-challenge=on -np -e robots=off {modis_list_url}',\n        shell=True, stderr=subprocess.PIPE)\n    index_file = open('index.html', 'r')\n    webContent = index_file.read()\n    parsed_html = BeautifulSoup(webContent, \"html.parser\")\n    all_rows = parsed_html.body.findAll('td', attrs={'class': 'indexcolname'})\n    return all_rows\n\n\ndef download_recent_modis(date=None):\n    if date:\n        latest_date_str = date.strftime(\"%Y.%m.%d\")\n    else:\n        latest_date_str = get_latest_date().strftime(\"%Y.%m.%d\")\n    for tile in tile_list:\n        download_cmd = f'wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies ' \\\n                       f'--no-check-certificate --auth-no-challenge=on -r --reject \"i' \\\n                       f'ndex.html*\" -P {modis_download_dir} -np -e robots=off ' \\\n                       f'https://n5eil01u.ecs.nsidc.org/MOST/MOD10A2.061/{latest_date_str}/ -A \"*{tile}*.hdf\" --quiet'\n        # print(download_cmd)\n        p = subprocess.run(download_cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n        print(\"Downloading tile, \", tile, \" with status code \", \"OK\" if p.returncode == 0 else p.returncode)\n\n\n# def merge_wrap_tif_into_western_us_tif():\n#     latest_date_str = get_latest_date().strftime(\"%Y.%m.%d\")\n#     # traverse the folder and find the new download files\n#     for filename in os.listdir(f\"n5eil01u.ecs.nsidc.org/MOST/MOD10A2.061/{latest_date_str}/\"):\n#         f = os.path.join(directory, filename)\n#         # checking if it is a file\n#         if os.path.isfile(f):\n#             print(f)\n# merge_wrap_tif_into_western_us_tif()\n\ndef hdf_tif_cvt(resource_path, destination_path):\n    if not os.path.isfile(resource_path):\n        raise Exception(\"HDF file not found\")\n\n    max_snow_extent_path = destination_path + \"maximum_snow_extent/\"\n    eight_day_snow_cover = destination_path + \"eight_day_snow_cover/\"\n    if not os.path.exists(max_snow_extent_path):\n        os.makedirs(max_snow_extent_path)\n    if not os.path.exists(eight_day_snow_cover):\n        os.makedirs(eight_day_snow_cover)\n\n    tif_file_name_snow_extent = max_snow_extent_path + resource_path.split('/')[-1].split('.hdf')[0]\n    tif_file_name_eight_day = eight_day_snow_cover + resource_path.split('/')[-1].split('.hdf')[0]\n    tif_file_extension = '.tif'\n\n    maximum_snow_extent_file_name = tif_file_name_snow_extent + '_max_snow_extent' + tif_file_extension\n    eight_day_snow_cover_file_name = tif_file_name_eight_day + '_modis_snow_500m' + tif_file_extension\n\n    maximum_snow_extent = f\"HDF4_EOS:EOS_GRID:\\\"{resource_path}\\\":MOD_Grid_Snow_500m:Maximum_Snow_Extent\"\n    eight_day_snow_cover = f\"HDF4_EOS:EOS_GRID:\\\"{resource_path}\\\":MOD_Grid_Snow_500m:Eight_Day_Snow_Cover\"\n\n    subprocess.run(f\"gdal_translate {maximum_snow_extent} {maximum_snow_extent_file_name}\", shell=True)\n    subprocess.run(f\"gdal_translate {eight_day_snow_cover} {eight_day_snow_cover_file_name}\", shell=True)\n\n\ndef combine_geotiff_gdal(vrt_array, destination):\n    subprocess.run(f\"gdalbuildvrt {destination} {' '.join(vrt_array)}\", shell=True)\n    tif_name = destination.split('.vrt')[-2] + '.tif'\n    subprocess.run(f\"gdal_translate -of GTiff {destination} {tif_name}\", shell=True)\n\n\ndef hdf_tif_conversion(resource_path, destination_path):\n    hdf_dataset = gdal.Open(resource_path)\n    if hdf_dataset is None:\n        raise Exception(\"Could not open HDF dataset\")\n\n    maximum_snow_extent = hdf_dataset.GetSubDatasets()[0][0]\n    modis_snow_500m = hdf_dataset.GetSubDatasets()[1][0]\n\n    driver = gdal.GetDriverByName('GTiff')\n\n    tif_file_name = destination_path + resource_path.split('/')[-1].split('.hdf')[0]\n    tif_file_extension = '.tif'\n\n    maximum_snow_extent_file_name = tif_file_name + '_max_snow_extent' + tif_file_extension\n    modis_snow_500m_file_name = tif_file_name + '_modis_snow_500m' + tif_file_extension\n\n    maximum_snow_extent_dataset = gdal.Open(maximum_snow_extent)\n    modis_snow_500m_dataset = gdal.Open(modis_snow_500m)\n\n    if maximum_snow_extent_dataset is None:\n        raise Exception(\"Could not open maximum_snow_extent dataset\")\n\n    if modis_snow_500m_dataset is None:\n        raise Exception(\"Could not open modis_snow_500m dataset\")\n\n    driver.CreateCopy(maximum_snow_extent_file_name, maximum_snow_extent_dataset, 0)\n    driver.CreateCopy(modis_snow_500m_file_name, modis_snow_500m_dataset, 0)\n\n    print(\"HDF to TIF conversion completed successfully.\")\n\n\ndef download_modis_archive(*, start_date, end_date):\n    all_archive_dates = list()\n\n    all_rows = get_web_row_data()\n    for r in all_rows:\n        try:\n            all_archive_dates.append(datetime.strptime(r.text.replace('/', ''), '%Y.%m.%d'))\n        except:\n            continue\n\n    for a in all_archive_dates:\n        if start_date <= a <= end_date:\n            download_recent_modis(a)\n\n\ndef step_one_download_modis():\n  download_recent_modis()\n                   \ndef step_two_merge_modis_western_us():\n  download_modis_archive(start_date=datetime(2022, 1, 1), end_date=datetime(2022, 12, 31))\n\n  files = get_files(modis_downloaded_data)\n  for k, v in get_files(modis_downloaded_data).items():\n\n    conversion_path = modis_download_dir + \"geo-tiff/\" + k + \"/\"\n    if not os.path.exists(conversion_path):\n        os.makedirs(conversion_path)\n    for hdf_file in v:\n        # print(hdf_file.split('/')[-1].split('.hdf')[0], 1)\n        hdf_tif_cvt(hdf_file, conversion_path)\n\n  if not os.path.exists(vrt_file_dir):\n    os.makedirs(vrt_file_dir)\n\n\n  directories = [d for d in os.listdir(geo_tiff) if   os.path.isdir(os.path.join(geo_tiff, d))]\n\n  for d in directories:\n    eight_day_snow_cover = geo_tiff + d + '/eight_day_snow_cover'\n    maximum_snow_extent = geo_tiff + d + '/maximum_snow_extent'\n\n    eight_day_abs_path = list()\n    snow_extent_abs_path = list()\n\n    for file in os.listdir(eight_day_snow_cover):\n        file_path = os.path.abspath(os.path.join(eight_day_snow_cover, file))\n        eight_day_abs_path.append(file_path)\n\n    for file in os.listdir(maximum_snow_extent):\n        file_path = os.path.abspath(os.path.join(maximum_snow_extent, file))\n        snow_extent_abs_path.append(file_path)\n\n    combine_geotiff_gdal(eight_day_abs_path, vrt_file_dir + f\"{d}_eight_day.vrt\")\n    combine_geotiff_gdal(snow_extent_abs_path, vrt_file_dir + f\"{d}_snow_extent.vrt\")\n\n                   \n# main workflow is here:\nstep_one_download_modis()\nstep_two_merge_modis_western_us()\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "history_output" : "sh: /home/chetana/anaconda3/condabin/python: No such file or directory\n",
+  "history_begin_time" : 1682984798437,
+  "history_end_time" : 1682984801625,
+  "history_notes" : null,
+  "history_process" : "illwc1",
+  "host_id" : "jf7wuu",
+  "indicator" : "Failed"
+},{
+  "history_id" : "2lv9chjv1g4",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798052,
+  "history_end_time" : 1682984800290,
+  "history_notes" : null,
+  "history_process" : "sjs5by",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "y8icnpd59ua",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798053,
+  "history_end_time" : 1682984800290,
+  "history_notes" : null,
+  "history_process" : "y7nb46",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "osd66ca0xq5",
+  "history_input" : "import json\nimport pandas as pd\nimport ee\nimport os\nimport geopandas as gpd\nimport numpy as np\nimport concurrent.futures\nimport eeauth as e\n\n# authenticate with Earth Engine\ntry:\n    ee.Initialize(e.creds())\nexcept Exception as e:\n    ee.Authenticate()\n    ee.Initialize()\n\n# set up parameters\norg_name = 'gridmet'\nproduct_name = 'IDAHO_EPSCOR/GRIDMET'\nstart_date = '2018-10-01'\nend_date = '2019-09-30'\nvar_list = ['tmmn', 'tmmx', 'pr', 'vpd', 'eto', 'rmax', 'rmin', 'vs']\nhomedir = os.path.expanduser('~')\ngithub_dir = os.path.join(homedir, 'Documents', 'GitHub', 'SnowCast')\nstation_cell_mapper_file = f\"{github_dir}/data/ready_for_training/station_cell_mapping.csv\"\nstation_cell_mapper_df = pd.read_csv(station_cell_mapper_file)\n\n\n# helper function to get data for a single cell\ndef get_cell_data(args):\n    cell_id, longitude, latitude = args\n    print(f'Running cell data for lat: {latitude}, long:{longitude}')\n    try:\n        # identify a 500 meter buffer around our Point Of Interest (POI)\n        poi = ee.Geometry.Point(longitude, latitude).buffer(1000)\n        viirs = ee.ImageCollection(product_name).filterDate(start_date, end_date).filterBounds(poi).select(var_name)\n\n        def poi_mean(img):\n            reducer = img.reduceRegion(reducer=ee.Reducer.mean(), geometry=poi, scale=1000)\n            mean = reducer.get(var_name)\n            return img.set('date', img.date().format()).set(column_name, mean)\n\n        poi_reduced_imgs = viirs.map(poi_mean)\n\n        nested_list = poi_reduced_imgs.reduceColumns(ee.Reducer.toList(2), ['date', column_name]).values().get(0)\n\n        # dont forget we need to call the callback method \"getInfo\" to retrieve the data\n        df = pd.DataFrame(nested_list.getInfo(), columns=['date', column_name])\n        df['date'] = pd.to_datetime(df['date'])\n        df = df.set_index('date')\n        df['cell_id'] = cell_id\n        df['latitude'] = latitude\n        df['longitude'] = longitude\n\n        return df\n    except Exception as e:\n        print(e)\n        return None\n\n\n# iterate over variables and cells to retrieve data\nfor var_name in var_list:\n    column_name = var_name\n    dfolder = f\"{homedir}/Documents/GitHub/SnowCast/data/sim_training/{org_name}/\"\n    if not os.path.exists(dfolder):\n        os.makedirs(dfolder)\n\n    all_cell_df = pd.DataFrame(columns=['date', column_name, 'cell_id', 'latitude', 'longitude'])\n    cell_args = [(cell_id, longitude, latitude) for cell_id, longitude, latitude in\n                 zip(station_cell_mapper_df['cell_id'], station_cell_mapper_df['lon'], station_cell_mapper_df['lat'])]\n\n    with concurrent.futures.ThreadPoolExecutor() as executor:\n        cell_dfs = list(executor.map(get_cell_data, cell_args))\n\n    for df in cell_dfs:\n        if df is not None:\n            df_list = [all_cell_df, df]\n            all_cell_df = pd.concat(df_list)  # merge into big dataframe\n\n    all_cell_df.to_csv(f\"{dfolder}/{column_name}.csv\")\n",
+  "history_output" : "sh: /home/chetana/anaconda3/condabin/python: No such file or directory\n",
+  "history_begin_time" : 1682984798587,
+  "history_end_time" : 1682984801591,
+  "history_notes" : null,
+  "history_process" : "a8p3n7",
+  "host_id" : "jf7wuu",
+  "indicator" : "Failed"
+},{
+  "history_id" : "ux04mjavxi1",
+  "history_input" : "import os\nimport urllib\nimport requests\nfrom bs4 import BeautifulSoup\n\n# download the NetCDF file from Idaho http site daily or the time period matching the MODIS period\n# download site: https://www.northwestknowledge.net/metdata/data/\n\ndownload_source = \"https://www.northwestknowledge.net/metdata/data/\"\ngridmet_download_dir = \"/home/chetana/terrian_data/\"\n\n\ndef download_gridmet():\n    if not os.path.exists(gridmet_download_dir):\n        os.makedirs(gridmet_download_dir)\n\n    soup = BeautifulSoup(requests.get(download_source).text, \"html.parser\")\n    tag_links = soup.find_all('a')\n    for t in tag_links:\n        if '.nc' in t.text and not 'eddi' in t.text and not os.path.isfile(gridmet_download_dir + t.get(\"href\")):\n            print(f'downloading {t.get(\"href\")}')\n            urllib.request.urlretrieve(download_source + t.get('href'), gridmet_download_dir + t.get(\"href\"))\n\n\ndownload_gridmet()\n",
+  "history_output" : "sh: /home/chetana/anaconda3/condabin/python: No such file or directory\n",
+  "history_begin_time" : 1682984798278,
+  "history_end_time" : 1682984801622,
+  "history_notes" : null,
+  "history_process" : "smsdr0",
+  "host_id" : "jf7wuu",
+  "indicator" : "Failed"
+},{
+  "history_id" : "851661nybxz",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798059,
+  "history_end_time" : 1682984800293,
+  "history_notes" : null,
+  "history_process" : "4i0sop",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "gnzesbnhga1",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800293,
+  "history_notes" : null,
+  "history_process" : "b63prf",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "wh69xyi8zwy",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798063,
+  "history_end_time" : 1682984800294,
+  "history_notes" : null,
+  "history_process" : "zh38b6",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "2ljq5ydbpb1",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798064,
+  "history_end_time" : 1682984800294,
+  "history_notes" : null,
+  "history_process" : "wdh394",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "hs9rmpznzb8",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798065,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "ilbqzg",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "41e5ukketdk",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798066,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "do86ae",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "qbp1gb7gso7",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798067,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "gkhtc0",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "5maeasyhj6k",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798068,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "c48my1lbxmm",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798069,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "8ovvln",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "tbkm8ljgefj",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798069,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "8sv3o6",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "kj6ta4wv6sl",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798070,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "11iolq",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "t56j8cwk31d",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800296,
+  "history_notes" : null,
+  "history_process" : "p87wh1",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "1o91o8lwz64",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800297,
+  "history_notes" : null,
+  "history_process" : "oof81y",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "u454gbzvdpz",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1682984800298,
+  "history_notes" : null,
+  "history_process" : "drd3i0",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+}]

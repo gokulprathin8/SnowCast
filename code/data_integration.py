@@ -12,6 +12,8 @@ import geojson
 import numpy as np
 import os.path
 from datetime import datetime,timedelta
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 print("integrating datasets into one dataset")
 # pd.set_option('display.max_columns', None)
@@ -36,10 +38,6 @@ training_feature_pd = pd.read_csv(training_feature_file, header=0, index_col=0)
 testing_feature_pd = pd.read_csv(testing_feature_file, header=0, index_col=0)
 train_labels_pd = pd.read_csv(train_labels_file, header=0, index_col=0)
 print(train_labels_pd.head())
-# if "2ca6a37f-67f5-4905-864b-ddf98d956ebb" in train_labels_pd.index and "2013-01-02" in train_labels_pd.columns:
-#   print("Check one value: ", train_labels_pd.loc["2ca6a37f-67f5-4905-864b-ddf98d956ebb"]["2013-01-02"])
-# else:
-#   print("Key not existed")
 
 station_cell_mapper_pd = pd.read_csv(station_cell_mapper_file, header=0, index_col=0)
 
@@ -166,7 +164,7 @@ def prepare_training_csv():
     input columns: [m, doy, tmmn, tmmx, pr, vpd, eto, rmax, rmin, vs]
     output column: [swe]
   """
-    all_ready_file = f"{github_dir}/data/ready_for_training/all_ready.csv"
+    all_ready_file = f"{github_dir}/data/ready_for_training/all_ready_modis_without_nsidc.csv"
     if os.path.isfile(all_ready_file):
         return
 
@@ -200,7 +198,7 @@ def prepare_training_csv():
     print("testing_feature_pd size: ", testing_feature_pd.shape)
 
     all_training_pd = pd.DataFrame(
-        columns=["cell_id", "year", "m", "doy", "ndsi", "grd", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs",
+        columns=["cell_id", "year", "m", "doy", "modis_ndsi", "grd", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs",
                  "lat", "lon", "elevation", "aspect", "curvature", "slope", "eastness", "northness", "swe"])
     all_training_pd = all_training_pd.reset_index()
     for index, row in modis_all_pd.iterrows():
@@ -233,14 +231,13 @@ def prepare_training_csv():
                 northness = grid_terrain_pd.loc[cell_id, "Northness [unitCirc.]"]
 
                 if not np.isnan(swe):
-                    json_kv = {"cell_id": cell_id, "year": year, "m": month, "doy": doy, "ndsi": ndsi, "grd": grd,
+                    json_kv = {"cell_id": cell_id, "year": year, "m": month, "doy": doy, "modis_ndsi": ndsi, "grd": grd,
                                "eto": eto,
                                "pr": pr, "rmax": rmax, "rmin": rmin, "tmmn": tmmn, "tmmx": tmmx, "vpd": vpd, "vs": vs,
                                "lat": lat,
                                "lon": lon, "elevation": elevation, "aspect": aspect, "curvature": curvature,
                                "slope": slope,
                                "eastness": eastness, "northness": northness, "swe": swe}
-                    # print(json_kv)
                     all_training_pd = all_training_pd.append(json_kv, ignore_index=True)
 
     print(all_training_pd.shape)
@@ -262,6 +259,17 @@ def loc_closest_gridcell_id(find_lat, find_lon, valid_cols):
     print("cell id: ", grid_lat_lon.iloc[ind[0][0]]['cell_id'])
     return ind[0][0], grid_lat_lon.iloc[ind[0][0]]['cell_id']
 
+def do_grid_cell_clean_up(pd):
+    """
+    As the grid cell has _x and _y suffixes which mess everything up. We will do a clean up to remove those duplicated columns.
+    
+    """
+    for col in pd.columns:
+      if "_" in col:
+        new_col_name = col.split("_")[0]
+        pd.rename(columns={col:new_col_name}, inplace = True)
+    return pd
+    
 
 def prepare_training_csv_nsidc():
     """
@@ -269,7 +277,7 @@ def prepare_training_csv_nsidc():
     input columns: [m, doy, tmmn, tmmx, pr, vpd, eto, rmax, rmin, vs]
     output column: [swe]
   """
-    all_ready_file = f"{github_dir}/data/ready_for_training/all_ready_new.csv"
+    all_ready_file = f"{github_dir}/data/ready_for_training/all_ready_new_with_modis.csv"
     if os.path.isfile(all_ready_file):
         print("The file already exists. Exiting..")
         return
@@ -289,6 +297,20 @@ def prepare_training_csv_nsidc():
     gridmet_vpd_all_pd = pd.read_csv(all_gridmet_vpd_file, header=0, index_col=0)
     all_gridmet_vs_file = f"{github_dir}/data/ready_for_training/gridmet_vs_all.csv"
     gridmet_vs_all_pd = pd.read_csv(all_gridmet_vs_file, header=0, index_col=0)
+    
+    print("gridmet_tmmn_all_pd shape: ",gridmet_tmmn_all_pd.shape)
+    
+    all_modis_file = f"{github_dir}/data/ready_for_training/modis_all.csv"
+    modis_all_pd = pd.read_csv(all_modis_file, header=0, index_col=0)
+    
+    print("modis_all_pd head: ", modis_all_pd.head())
+    print("modis_all_pd shape: ", modis_all_pd.shape)
+    modis_all_pd = do_grid_cell_clean_up(modis_all_pd)
+    if "76b55900-eb3d-4d25-a538-f74302ffe72d" in modis_all_pd.columns:
+        print("76b55900-eb3d-4d25-a538-f74302ffe72d exists in modis_all_pd.")
+    #print('modis_all_pd[0]["76b55900-eb3d-4d25-a538-f74302ffe72d"]: ', modis_all_pd.iloc[0, "76b55900-eb3d-4d25-a538-f74302ffe72d"])
+    
+    
     all_nsidc_file = f"{github_dir}/data/sim_training/nsidc/2019nsidc_data.csv"
     nsidc_all_pd = pd.read_csv(all_nsidc_file, header=0, index_col=0)
 
@@ -307,16 +329,16 @@ def prepare_training_csv_nsidc():
     all_valid_columns = gridmet_eto_all_pd.columns.values
     all_training_pd = pd.DataFrame(
         columns=["cell_id", "year", "m", "day", "eto", "pr", "rmax", "rmin", "tmmn", "tmmx", "vpd", "vs", "lat", "lon",
-                 "elevation", "aspect", "curvature", "slope", "eastness", "northness", "swe_0719", "depth_0719", "swe_snotel"])
+                 "elevation", "aspect", "curvature", "slope", "eastness", "northness", "swe_0719", "depth_0719", "modis", "swe_snotel"])
     all_training_pd = all_training_pd.reset_index()
     for index, row in nsidc_all_pd.iterrows():
         month = row['Month']
         year = row['Year']
         day = row['Day']
-#         print(f"Dealing {year} {month} {day}")
+        print(f"Dealing {year} {month} {day}")
         lat = row['Lat']
         lon = row['Lon']
-#         print("lat lon: ", lat, " ", lon)
+        print("lat lon: ", lat, " ", lon)
         ind, cell_id = loc_closest_gridcell_id(lat, lon, all_valid_columns)
         swe = row['SWE']
         depth = row['Depth']
@@ -339,6 +361,7 @@ def prepare_training_csv_nsidc():
         northness = grid_terrain_pd.loc[ind, "Northness [unitCirc.]"]
         cdate = datetime(year=int(year), month=int(month), day=int(day))
         current_date = cdate.strftime("%Y-%m-%d")
+        modis = modis_all_pd.iloc[index][cell_id]
         
         if cell_id in train_labels_pd.index and current_date in train_labels_pd.columns:
 #           print("Check one value: ", train_labels_pd.loc[cell_id][current_date])
@@ -347,42 +370,17 @@ def prepare_training_csv_nsidc():
           swe_snotel = -1
 #           print("Key not existed")
 
-        if not np.isnan(swe):
-            json_kv = {"cell_id":cell_id,"year":year, "m":month, "day": day, "eto":eto, "pr":pr, "rmax":rmax, "rmin":rmin, "tmmn":tmmn, "tmmx":tmmx, "vpd":vpd, "vs":vs, "lat":lat, "lon":lon, "elevation":elevation, "aspect":aspect, "curvature":curvature, "slope":slope, "eastness":eastness, "northness":northness, "swe_0719":swe, "depth_0719":depth, "swe_snotel": swe_snotel}
-#             print(json_kv)
+        if not np.isnan(swe_snotel):
+            json_kv = {"cell_id":cell_id,"year":year, "m":month, "day": day, "eto":eto, "pr":pr, "rmax":rmax, "rmin":rmin, "tmmn":tmmn, "tmmx":tmmx, "vpd":vpd, "vs":vs, "lat":lat, "lon":lon, "elevation":elevation, "aspect":aspect, "curvature":curvature, "slope":slope, "eastness":eastness, "northness":northness, "swe_0719":swe, "depth_0719":depth, "modis":modis, "swe_snotel": swe_snotel}
             all_training_pd = all_training_pd.append(json_kv, ignore_index=True)
-#             print(all_training_pd.shape)
 
     print(all_training_pd.shape)
     all_training_pd.to_csv(all_ready_file)
-
-    """
-  grd_all_pd = pd.DataFrame(columns=["year", "m", "doy", "grd", "swe"])
-  grd_all_pd = grd_all_pd.reset_index()
-  for index, row in sentinel1_all_pd.iterrows():
-    dt = datetime.strptime(row['date'], '%Y-%m-%d')
-    year = dt.year
-    month = dt.month
-    doy = dt.timetuple().tm_yday
-    for i in range(3,len(row.index)):
-      cell_id = row.index[i]
-      grd = row.values[i]
-      if not np.isnan(grd) and cell_id in train_labels_pd.index and row['date'] in train_labels_pd:
-        swe = train_labels_pd.loc[cell_id, row['date']]
-        if not np.isnan(swe):
-          print([month, doy, grd, swe])
-          grd_all_pd = grd_all_pd.append({"year": year, "m":month, "doy": doy, "grd": grd, "swe": swe}, ignore_index = True)
-  
-  print(grd_all_pd.shape)
-  grd_all_pd.to_csv(f"{github_dir}/data/ready_for_training/sentinel1_ready.csv")
-  """
-
-
-exit() # done already
 
 # integrate_modis()
 # integrate_sentinel1()
 # integrate_gridmet()
 # prepare_training_csv()
 
-prepare_training_csv_nsidc()
+#prepare_training_csv_nsidc()
+prepare_training_csv()

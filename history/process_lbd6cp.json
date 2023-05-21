@@ -1,4 +1,14 @@
 [{
+  "history_id" : "5maeasyhj6k",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1682984798068,
+  "history_end_time" : 1682984800295,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "jf7wuu",
+  "indicator" : "Stopped"
+},{
   "history_id" : "w3i8n0so6ut",
   "history_input" : "No code saved",
   "history_output" : "Skipped",
@@ -39,6 +49,316 @@
   "host_id" : "jf7wuu",
   "indicator" : "Skipped"
 },{
+  "history_id" : "xirsz1q5mkk",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679191258499,
+  "history_end_time" : 1679191258499,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "2jifky",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "n8l0wozhwym",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679191258498,
+  "history_end_time" : 1679191258498,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "2jifky",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "0dlh0b65ied",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091534992,
+  "history_end_time" : 1679091744970,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "m7frw6mvc7l",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091534989,
+  "history_end_time" : 1679091744970,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "momkreu5mym",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091527588,
+  "history_end_time" : 1679091533673,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "t5b2qr1jxcc",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1679091527474,
+  "history_end_time" : 1679091533670,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "vom43i7j3hr",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887964100,
+  "history_end_time" : 1678888215698,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "m4d3q8trcw4",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887964099,
+  "history_end_time" : 1678888215698,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "3n2jdto12sr",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887944952,
+  "history_end_time" : 1678887946446,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ahtayuj3p23",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887944952,
+  "history_end_time" : 1678887946446,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "lrico30fenj",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887287259,
+  "history_end_time" : 1678887836233,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "4w39lx6pztw",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678887287256,
+  "history_end_time" : 1678887836233,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "by8meu20u7q",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678886689975,
+  "history_end_time" : 1678887010629,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ez93uyks65b",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678886689971,
+  "history_end_time" : 1678887010629,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "jobhqqmxooe",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884557547,
+  "history_end_time" : 1678884986358,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "p6pikyg4kzo",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884557544,
+  "history_end_time" : 1678884986358,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "lc7dh0bk1nt",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884501901,
+  "history_end_time" : 1678884535354,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "iwksrzooy8u",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884501896,
+  "history_end_time" : 1678884535354,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "do4voej56i9",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207346,
+  "history_end_time" : 1678884438334,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "hr93w8dmntp",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884207344,
+  "history_end_time" : 1678884438334,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "9xd2br1kj51",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884125223,
+  "history_end_time" : 1678884140269,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "1p8qdrfmnci",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884125219,
+  "history_end_time" : 1678884140269,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "rj8jtb3f9ju",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884039393,
+  "history_end_time" : 1678884042290,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "bqusxuoq0ap",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678884039391,
+  "history_end_time" : 1678884042290,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "jodwh5h8gbl",
+  "history_input" : "from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import mean_squared_error as mse\nfrom sklearn import metrics \nfrom sklearn import tree\nimport joblib\nimport os\nfrom pathlib import Path\nimport json\nimport geopandas as gpd\nimport geojson\nimport os.path\nimport math\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.model_selection import RandomizedSearchCV\nfrom base_hole import BaseHole\nfrom sklearn.model_selection import train_test_split\nfrom datetime import datetime\nfrom model_creation_rf import RandomForestHole\nfrom sklearn.ensemble import ExtraTreesRegressor\n\nclass ExtraTreeHole(RandomForestHole):\n\n  def get_model(self):\n    \"\"\"\n    rfc_pipeline = Pipeline(steps = [\n      ('data_scaling', StandardScaler()),\n      ('model', RandomForestRegressor(max_depth = 15,\n                                       min_samples_leaf = 0.004,\n                                       min_samples_split = 0.008,\n                                       n_estimators = 25))])\n    #return rfc_pipeline\n  \t\"\"\"\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                    #min_impurity_split=None, \n                    min_samples_leaf=1,\n                    min_samples_split=2, min_weight_fraction_leaf=0.0,\n                    n_estimators=100, n_jobs=-1, oob_score=False,\n                    random_state=123, verbose=0, warm_start=False)\n    return etmodel\n\n\n",
+  "history_output" : "  File \"/home/chetana/gw-workspace/jodwh5h8gbl/model_creation_et.py\", line 41\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                                                                                                                              ^\nSyntaxError: positional argument follows keyword argument\n",
+  "history_begin_time" : 1678883327449,
+  "history_end_time" : 1678883775458,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "cwuekjmdf02",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678883288648,
+  "history_end_time" : 1678883775458,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "cpr2c0kwo6r",
+  "history_input" : "from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import mean_squared_error as mse\nfrom sklearn import metrics \nfrom sklearn import tree\nimport joblib\nimport os\nfrom pathlib import Path\nimport json\nimport geopandas as gpd\nimport geojson\nimport os.path\nimport math\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.model_selection import RandomizedSearchCV\nfrom base_hole import BaseHole\nfrom sklearn.model_selection import train_test_split\nfrom datetime import datetime\nfrom model_creation_rf import RandomForestHole\nfrom sklearn.ensemble import ExtraTreesRegressor\n\nclass ExtraTreeHole(RandomForestHole):\n\n  def get_model(self):\n    \"\"\"\n    rfc_pipeline = Pipeline(steps = [\n      ('data_scaling', StandardScaler()),\n      ('model', RandomForestRegressor(max_depth = 15,\n                                       min_samples_leaf = 0.004,\n                                       min_samples_split = 0.008,\n                                       n_estimators = 25))])\n    #return rfc_pipeline\n  \t\"\"\"\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                    #min_impurity_split=None, \n                    min_samples_leaf=1,\n                    min_samples_split=2, min_weight_fraction_leaf=0.0,\n                    n_estimators=100, n_jobs=-1, oob_score=False,\n                    random_state=123, verbose=0, warm_start=False)\n    return etmodel\n\n\n",
+  "history_output" : "  File \"/home/chetana/gw-workspace/cpr2c0kwo6r/model_creation_et.py\", line 41\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                                                                                                                              ^\nSyntaxError: positional argument follows keyword argument\n",
+  "history_begin_time" : 1678756761625,
+  "history_end_time" : 1678756762958,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Done"
+},{
+  "history_id" : "jsw29vfpu7a",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678756752348,
+  "history_end_time" : 1678756752348,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "vjsry0r527p",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678756683316,
+  "history_end_time" : 1678756684837,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "sg16yn842et",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678749631735,
+  "history_end_time" : 1678749936029,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "8lin9pzz4mo",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678749631729,
+  "history_end_time" : 1678749936028,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
   "history_id" : "i3zmoilod8t",
   "history_input" : "No code saved",
   "history_output" : "Skipped",
@@ -48,6 +368,346 @@
   "history_process" : "lbd6cp",
   "host_id" : "100001",
   "indicator" : "Skipped"
+},{
+  "history_id" : "7kpcfb9mu2i",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678747245317,
+  "history_end_time" : 1678747245317,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "ht7h5ztk5n5",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678747245311,
+  "history_end_time" : 1678747245311,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "tjra16hmblf",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678746481227,
+  "history_end_time" : 1678746793060,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "igrpr0damup",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678746481216,
+  "history_end_time" : 1678746793059,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "1hxpubqx1o2",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743868500,
+  "history_end_time" : 1678744167107,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "40i1rmriogy",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743868499,
+  "history_end_time" : 1678744167106,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ftbuf61nd2c",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743629021,
+  "history_end_time" : 1678743629021,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "r01ls4uw6ln",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743629019,
+  "history_end_time" : 1678743629019,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "3nfv5zqd4yk",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743144823,
+  "history_end_time" : 1678743615535,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "x1vt5lc2e3d",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678743144822,
+  "history_end_time" : 1678743615535,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "qujqvj5dm0z",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742583290,
+  "history_end_time" : 1678742583290,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "5q2qgz4w80d",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742583289,
+  "history_end_time" : 1678742583289,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "nbe1lshvwta",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742209486,
+  "history_end_time" : 1678742571511,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "bbzgz2dpidl",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678742209483,
+  "history_end_time" : 1678742571511,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "27f0v0pud9x",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678738707276,
+  "history_end_time" : 1678738707276,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "19er2t3yx1g",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678738707274,
+  "history_end_time" : 1678738707274,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "jigh9nl4t7u",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678725425014,
+  "history_end_time" : 1678725425014,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "u40lgnasntg",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678725424892,
+  "history_end_time" : 1678725424892,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "f4e1hlra6gf",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678723111834,
+  "history_end_time" : 1678725408358,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "53h8avrpx9p",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678723111823,
+  "history_end_time" : 1678725408356,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "198bqxz7f5j",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678649002073,
+  "history_end_time" : 1678649002073,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "l9vzd1m2hgn",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678649002070,
+  "history_end_time" : 1678649002070,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "fdyq176fimx",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648366923,
+  "history_end_time" : 1678648366923,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "h2eqa3wch4x",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648366920,
+  "history_end_time" : 1678648366920,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "ab1s92l6dds",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648337357,
+  "history_end_time" : 1678648341661,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "k66k748cjga",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678648337344,
+  "history_end_time" : 1678648341660,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ptufi5ed55k",
+  "history_input" : "from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import mean_squared_error as mse\nfrom sklearn import metrics \nfrom sklearn import tree\nimport joblib\nimport os\nfrom pathlib import Path\nimport json\nimport geopandas as gpd\nimport geojson\nimport os.path\nimport math\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.model_selection import RandomizedSearchCV\nfrom base_hole import BaseHole\nfrom sklearn.model_selection import train_test_split\nfrom datetime import datetime\nfrom model_creation_rf import RandomForestHole\nfrom sklearn.ensemble import ExtraTreesRegressor\n\nclass ExtraTreeHole(RandomForestHole):\n\n  def get_model(self):\n    \"\"\"\n    rfc_pipeline = Pipeline(steps = [\n      ('data_scaling', StandardScaler()),\n      ('model', RandomForestRegressor(max_depth = 15,\n                                       min_samples_leaf = 0.004,\n                                       min_samples_split = 0.008,\n                                       n_estimators = 25))])\n    #return rfc_pipeline\n  \t\"\"\"\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                    #min_impurity_split=None, \n                    min_samples_leaf=1,\n                    min_samples_split=2, min_weight_fraction_leaf=0.0,\n                    n_estimators=100, n_jobs=-1, oob_score=False,\n                    random_state=123, verbose=0, warm_start=False)\n    return etmodel\n\n\n",
+  "history_output" : "  File \"/home/chetana/gw-workspace/ptufi5ed55k/model_creation_et.py\", line 41\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                                                                                                                              ^\nSyntaxError: positional argument follows keyword argument\n",
+  "history_begin_time" : 1678564607188,
+  "history_end_time" : 1678564608540,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Done"
+},{
+  "history_id" : "ztn0nuiyjls",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678564567758,
+  "history_end_time" : 1678564567758,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "gver70bqw8e",
+  "history_input" : "from sklearn.ensemble import RandomForestRegressor\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import MinMaxScaler\nfrom sklearn.metrics import mean_squared_error as mse\nfrom sklearn import metrics \nfrom sklearn import tree\nimport joblib\nimport os\nfrom pathlib import Path\nimport json\nimport geopandas as gpd\nimport geojson\nimport os.path\nimport math\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.ensemble import RandomForestRegressor\nfrom sklearn.preprocessing import OneHotEncoder, StandardScaler\nfrom sklearn.model_selection import RandomizedSearchCV\nfrom base_hole import BaseHole\nfrom sklearn.model_selection import train_test_split\nfrom datetime import datetime\nfrom model_creation_rf import RandomForestHole\nfrom sklearn.ensemble import ExtraTreesRegressor\n\nclass ExtraTreeHole(RandomForestHole):\n\n  def get_model(self):\n    \"\"\"\n    rfc_pipeline = Pipeline(steps = [\n      ('data_scaling', StandardScaler()),\n      ('model', RandomForestRegressor(max_depth = 15,\n                                       min_samples_leaf = 0.004,\n                                       min_samples_split = 0.008,\n                                       n_estimators = 25))])\n    #return rfc_pipeline\n  \t\"\"\"\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                    #min_impurity_split=None, \n                    min_samples_leaf=1,\n                    min_samples_split=2, min_weight_fraction_leaf=0.0,\n                    n_estimators=100, n_jobs=-1, oob_score=False,\n                    random_state=123, verbose=0, warm_start=False)\n    return etmodel\n\n\n",
+  "history_output" : "  File \"/home/chetana/gw-workspace/gver70bqw8e/model_creation_et.py\", line 41\n    etmodel = ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse', max_depth=None, '''max_features='auto',''' max_leaf_nodes=None, max_samples=None, min_impurity_decrease=0.0,\n                                                                                                                              ^\n",
+  "history_begin_time" : 1678564554066,
+  "history_end_time" : 1678564556718,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Failed"
+},{
+  "history_id" : "ulcflprd983",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678564538715,
+  "history_end_time" : 1678564538715,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Skipped"
+},{
+  "history_id" : "nrebx1i5ifc",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557921962,
+  "history_end_time" : 1678557923651,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "682ra80i8pr",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557921959,
+  "history_end_time" : 1678557923651,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "lrrc1qqwq5i",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557705831,
+  "history_end_time" : 1678557898800,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "80zg2e6vaos",
+  "history_input" : "No code saved",
+  "history_output" : "Skipped",
+  "history_begin_time" : 1678557705828,
+  "history_end_time" : 1678557898797,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
 },{
   "history_id" : "jl5u26463i2",
   "history_input" : "No code saved",
@@ -2064,6 +2724,16 @@
   "history_output" : null,
   "history_begin_time" : null,
   "history_end_time" : 1677958952869,
+  "history_notes" : null,
+  "history_process" : "lbd6cp",
+  "host_id" : "45wlwr",
+  "indicator" : "Stopped"
+},{
+  "history_id" : "ilag9pn5tin",
+  "history_input" : null,
+  "history_output" : null,
+  "history_begin_time" : null,
+  "history_end_time" : 1678756684831,
   "history_notes" : null,
   "history_process" : "lbd6cp",
   "host_id" : "45wlwr",
